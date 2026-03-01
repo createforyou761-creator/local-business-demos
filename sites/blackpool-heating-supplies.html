@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLACKPOOL HEATING SUPPLIES | Blackpool</title>
+  <meta
+    name="description"
+    content="BLACKPOOL HEATING SUPPLIES provides trusted local services in Blackpool. Contact us today to get started."
+  />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #121826;
+      --muted: #5b6475;
+      --line: #e8edf5;
+      --primary: #1f6fff;
+      --primary-dark: #1457cc;
+      --accent: #0f172a;
+      --success: #0f9d58;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 50px rgba(15, 23, 42, 0.12);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(31,111,255,0.08), transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(31,111,255,0.08);
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-block;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(31,111,255,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--accent);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(232,237,245,0.9);
+    }
+
+    .topbar-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), #61a2ff);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 12px 22px rgba(31,111,255,0.22);
+      flex-shrink: 0;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(232,237,245,0.9);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-copy {
+      padding: 34px;
+    }
+
+    .hero-copy h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2rem, 4vw, 4.25rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-badges {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .badge-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .badge-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .badge-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -50px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31,111,255,0.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .card-panel {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .mini-heading {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .service-list,
+    .review-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .service-item,
+    .review-item {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .service-item strong,
+    .review-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .service-item span,
+    .review-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card,
+    .why-card,
+    .review-card,
+    .contact-card {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(232,237,245,0.9);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card {
+      padding: 22px;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(31,111,255,0.08);
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3,
+    .why-card h3,
+    .review-card h3,
+    .contact-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .service-card p,
+    .why-card p,
+    .review-card p,
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-wrap,
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .about-main,
+    .contact-main,
+    .contact-side {
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(232,237,245,0.9);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .about-main p,
+    .contact-main p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .why-grid,
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .why-card,
+    .review-card {
+      padding: 22px;
+    }
+
+    .stars {
+      color: #f4b400;
+      letter-spacing: 2px;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .review-author {
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .contact-value {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent);
+      word-break: break-word;
+    }
+
+    .contact-cta {
+      margin-top: 18px;
+    }
+
+    .cta-band {
+      margin: 18px 0 8px;
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #101828 0%, #1c325e 45%, #1f6fff 100%);
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .cta-band h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+      line-height: 1.08;
+    }
+
+    .cta-band p {
+      margin: 0;
+      color: rgba(255,255,255,0.85);
+      max-width: 58ch;
+    }
+
+    .footer {
+      padding: 28px 0 96px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(232,237,245,0.9);
+      padding-top: 20px;
+    }
+
+    .mobile-bar {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 60;
+      display: none;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(232,237,245,0.95);
+      box-shadow: 0 10px 30px rgba(15,23,42,0.14);
+      border-radius: 18px;
+      padding: 10px;
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-bar .btn {
+      width: 100%;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .about-wrap,
+      .contact-wrap,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .why-grid,
+      .review-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-copy h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        min-height: 68px;
+      }
+
+      .nav-actions .btn-secondary {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .about-main,
+      .contact-main,
+      .contact-side,
+      .service-card,
+      .why-card,
+      .review-card,
+      .cta-band {
+        border-radius: 22px;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .about-main,
+      .contact-main,
+      .contact-side,
+      .service-card,
+      .why-card,
+      .review-card {
+        padding: 20px;
+      }
+
+      .hero-badges,
+      .services-grid,
+      .why-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .cta-band .btn {
+        width: 100%;
+      }
+
+      .mobile-bar {
+        display: block;
+      }
+
+      .footer {
+        padding-bottom: 110px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" class="brand">
+        <div class="brand-mark">★</div>
+        <div class="brand-copy">
+          <div class="brand-name">BLACKPOOL HEATING SUPPLIES</div>
+          <div class="brand-sub">Trusted local service in Blackpool</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="#services" class="btn btn-secondary">Our Services</a>
+        <a href="#contact" class="btn btn-primary">Call Now for a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill"><span class="dot"></span> Serving Blackpool and nearby areas</span>
+          <h1>Professional Heating & Plumbing Supplies in Blackpool</h1>
+          <p>
+            BLACKPOOL HEATING SUPPLIES delivers dependable, high-quality support for customers across
+            Blackpool. Fast response, honest service, and clear communication from start to finish.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Call Now for a Quote</a>
+            <a href="tel:+44 1253 620400" class="btn btn-secondary">Call +44 1253 620400</a>
+          </div>
+
+          <div class="hero-badges">
+            <div class="badge-card">
+              <p class="badge-title">Fast</p>
+              <p class="badge-text">Quick response and efficient turnaround</p>
+            </div>
+            <div class="badge-card">
+              <p class="badge-title">Trusted</p>
+              <p class="badge-text">Friendly, professional, and reliable service</p>
+            </div>
+            <div class="badge-card">
+              <p class="badge-title">Local</p>
+              <p class="badge-text">Built around the needs of Blackpool customers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-panel">
+            <p class="mini-heading">Popular services</p>
+            <div class="service-list">
+              <div class="service-item">
+                <strong>Boiler supplies, Radiator sales, Heating system installation support, Pipe and fitting supply, Emergency heating repairs, Plumbing parts and accessories</strong>
+                <span>Tailored solutions designed for local customers and everyday needs.</span>
+              </div>
+              <div class="service-item">
+                <strong>Professional, straightforward support</strong>
+                <span>No fluff, no confusion — just quality work and clear communication.</span>
+              </div>
+              <div class="service-item">
+                <strong>Flexible appointments</strong>
+                <span>Convenient booking and a service built around your schedule.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <p class="mini-heading">What customers value</p>
+            <div class="review-list">
+              <div class="review-item">
+                <strong>Responsive and reliable</strong>
+                <span>Customers want quick turnaround, updates, and work done properly.</span>
+              </div>
+              <div class="review-item">
+                <strong>Professional finish</strong>
+                <span>Clean presentation, trustworthy service, and confidence from the first contact.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Services</span>
+            <h2>High-quality work, built around your needs</h2>
+            <p>BLACKPOOL HEATING SUPPLIES offers dependable service in Blackpool with a focus on quality, communication, and results.</p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="icon">✓</div>
+            <h3>Boiler supplies, Radiator sales, Heating system installation support, Pipe and fitting supply, Emergency heating repairs, Plumbing parts and accessories</h3>
+            <p>Tailored support designed to solve the job properly and efficiently.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">⚡</div>
+            <h3>Fast response</h3>
+            <p>Quick turnaround, clear updates, and a process that keeps things simple.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">★</div>
+            <h3>Trusted local service</h3>
+            <p>Professional, approachable, and focused on delivering a great customer experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">About</span>
+            <h2>A local business people can rely on</h2>
+          </div>
+        </div>
+
+        <div class="about-wrap">
+          <div class="about-main">
+            <p>I'm Blackpool Heating Supplies, your trusted local supplier of quality heating and plumbing products for over a decade. We stock everything professional plumbers need, from boilers and radiators to pipes and fittings. With expert advice and competitive pricing, we're here to keep Blackpool's homes and businesses warm and running smoothly.</p>
+          </div>
+          <div class="about-main">
+            <p>
+              Based in <strong>Blackpool</strong>, <strong>BLACKPOOL HEATING SUPPLIES</strong> is focused on
+              delivering a professional service with honest advice, transparent communication, and
+              results customers feel confident recommending.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Why choose us</span>
+            <h2>Simple, professional, and built to earn trust</h2>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Clear communication</h3>
+            <p>You always know what’s happening, what to expect, and what comes next.</p>
+          </div>
+          <div class="why-card">
+            <h3>Quality-first approach</h3>
+            <p>Attention to detail, reliable work, and a finish that reflects well on your business.</p>
+          </div>
+          <div class="why-card">
+            <h3>Local and dependable</h3>
+            <p>A service designed for customers in Blackpool who want things done properly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Trust</span>
+            <h2>Built to make a strong first impression</h2>
+            <p>A clean, professional online presence helps customers trust you faster and contact you sooner.</p>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Professional from the first click</h3>
+            <p>A polished website makes your business look established, trustworthy, and easy to choose.</p>
+            <div class="review-author">Local customer mindset</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Clear offer, strong call to action</h3>
+            <p>Visitors quickly understand what you do, where you work, and how to get in touch.</p>
+            <div class="review-author">Better conversions</div>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <h3>Designed for mobile users</h3>
+            <p>Most customers check on their phones first — this layout is built for that.</p>
+            <div class="review-author">Modern local browsing</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Need trusted help in Blackpool?</h2>
+            <p>BLACKPOOL HEATING SUPPLIES is ready to help with reliable service, clear communication, and a professional finish from start to finish.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary">Call Now for a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Contact</span>
+            <h2>Get in touch with BLACKPOOL HEATING SUPPLIES</h2>
+            <p>Speak to a local professional in Blackpool and get the help you need without the hassle.</p>
+          </div>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-main">
+            <h3>Ready to get started?</h3>
+            <p>
+              If you’re looking for dependable service, straightforward advice, and a business that
+              values doing things properly, contact <strong>BLACKPOOL HEATING SUPPLIES</strong> today.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-label">Phone</span>
+                <a class="contact-value" href="tel:+44 1253 620400">+44 1253 620400</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Blackpool</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Call to action</span>
+                <span class="contact-value">Call Now for a Quote</span>
+              </div>
+            </div>
+
+            <div class="contact-cta">
+              <a href="tel:+44 1253 620400" class="btn btn-primary">Call now</a>
+            </div>
+          </div>
+
+          <div class="contact-side">
+            <h3>Why this page works</h3>
+            <p>
+              This layout is designed to convert local visitors into enquiries with a strong first
+              impression, simple messaging, and clear next steps.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-label">Fast to understand</span>
+                <span class="contact-value">Visitors know what you do quickly</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Built for trust</span>
+                <span class="contact-value">Professional look and feel</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Designed for action</span>
+                <span class="contact-value">Clear contact and call buttons</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> BLACKPOOL HEATING SUPPLIES. Serving Blackpool and surrounding areas.</div>
+      <div class="muted">Professional local service with a modern online presence.</div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="tel:+44 1253 620400" class="btn btn-primary">Call Now for a Quote</a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
