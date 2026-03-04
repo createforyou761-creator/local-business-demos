@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{tagline}}" />
+  <meta name="description" content="[tagline]" />
   <title>{{business_name}} – {{town}} Plumbing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -378,7 +378,7 @@
         </span>
         <span class="flex items-center gap-2">
           <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          {{accreditation}}
+          Trusted Local Service
         </span>
         <span class="flex items-center gap-2">
           <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -427,8 +427,8 @@
             <span class="w-2 h-2 rounded-full bg-amber animate-pulse"></span>
             {{town}}'s #1 Rated Plumbers
           </div>
-          <h1 id="hero-headline" class="heading-fluid mb-6 text-white">{{headline}}</h1>
-          <p id="hero-tagline" class="text-xl text-white/70 mb-10 max-w-lg" style="opacity:0;">{{tagline}}</p>
+          <h1 id="hero-headline" class="heading-fluid mb-6 text-white">[headline]</h1>
+          <p id="hero-tagline" class="text-xl text-white/70 mb-10 max-w-lg" style="opacity:0;">[tagline]</p>
           <div id="hero-buttons" class="flex flex-wrap gap-4" style="opacity:0; transform: translateY(20px);">
             <a href="#contact" class="btn btn-primary">Book a Repair</a>
             <a href="#services" class="btn btn-secondary">View Our Services</a>
@@ -506,10 +506,13 @@
             <p class="text-muted max-w-2xl mx-auto">Comprehensive plumbing and heating solutions tailored for {{town}} homes and businesses.</p>
           </div>
         </div>
-        <!-- Expected structure for {{services_block}}: inject one or more service cards. Each card: wrapper with class="fade-up" and data-delay="[0,50,100,150,200,250]" (stagger per card), inner div with classes for card (bg-white p-8 rounded-2xl border etc.), optional emoji/icon area, h3 for title, p for description. Preserve grid parent: grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8.
-        IMPORTANT: Each injected card must have class="fade-up" and data-delay="[0,50,100,150,200,250]" on the outer wrapper for scroll animations to work correctly. -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {{services_block}}
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="0"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔧</div><p class="text-muted text-sm leading-relaxed">{{service1}}</p></div>
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="50"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔥</div><p class="text-muted text-sm leading-relaxed">{{service2}}</p></div>
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="100"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🚿</div><p class="text-muted text-sm leading-relaxed">{{service3}}</p></div>
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="150"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🌡️</div><p class="text-muted text-sm leading-relaxed">{{service4}}</p></div>
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="200"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">💧</div><p class="text-muted text-sm leading-relaxed">{{service5}}</p></div>
+          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="250"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🏠</div><p class="text-muted text-sm leading-relaxed">{{service6}}</p></div>
         </div>
       </div>
     </section>
@@ -520,14 +523,14 @@
         <div>
           <div class="fade-up" data-delay="0">
             <h2 class="text-4xl md:text-5xl mb-8">{{about_headline}}</h2>
-            <p class="text-white/70 mb-10 text-lg">{{about}}</p>
+            <p class="text-white/70 mb-10 text-lg">[about_text]</p>
             <div class="grid grid-cols-2 gap-6">
               <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">{{years_experience}}</p>
+                <p class="text-3xl font-syne font-bold text-amber mb-1">15+</p>
                 <p class="text-xs font-bold uppercase tracking-widest text-white/40">Years Experience</p>
               </div>
               <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">{{jobs_completed}}</p>
+                <p class="text-3xl font-syne font-bold text-amber mb-1">500+</p>
                 <p class="text-xs font-bold uppercase tracking-widest text-white/40">Happy Customers</p>
               </div>
               <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
@@ -550,7 +553,7 @@
                 <p class="text-white/30 text-xs mt-1">Replace with image URL or leave as placeholder</p>
                 <div class="absolute bottom-8 left-8 right-8 text-left">
                   <p class="font-syne text-xl text-white">The {{business_name}} Team</p>
-                  <p class="text-amber text-sm">On-site in {{town}}, {{year}}</p>
+                  <p class="text-amber text-sm">On-site in {{town}}, 2026</p>
                 </div>
               </div>
             </div>
@@ -619,10 +622,10 @@
             <p class="text-muted">Rated 4.9/5 based on 500+ local reviews.</p>
           </div>
         </div>
-        <!-- Expected structure for {{reviews_block}}: inject one or more review cards. Each card: wrapper with class="fade-up" and data-delay="[0,50,100,150,200,250]" (stagger per card), inner div with classes bg-light-grey p-8 rounded-3xl relative, star rating (e.g. 5x Star icons), blockquote/paragraph for quote text, author name and area/location. Preserve grid parent: grid grid-cols-1 md:grid-cols-3 gap-8.
-        IMPORTANT: Each injected card must have class="fade-up" and data-delay="[0,50,100,150,200,250]" on the outer wrapper for scroll animations to work correctly. -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {{reviews_block}}
+          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="0"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed">{{review1}}</p></div>
+          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="100"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed">{{review2}}</p></div>
+          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="200"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed">{{review3}}</p></div>
         </div>
       </div>
     </section>
@@ -631,7 +634,7 @@
     <section id="contact" class="bg-amber py-20">
       <div class="container-custom text-center">
         <div class="fade-up" data-delay="0">
-          <h2 class="text-4xl md:text-6xl text-navy mb-10 max-w-3xl mx-auto">{{cta_headline}}</h2>
+          <h2 class="text-4xl md:text-6xl text-navy mb-10 max-w-3xl mx-auto">[cta_text]</h2>
           <p class="text-navy/80 mb-6">{{cta_subtext}}</p>
           <div class="flex flex-wrap justify-center gap-4">
             <a href="tel:{{phone}}" class="btn btn-navy flex items-center gap-2">
@@ -683,7 +686,7 @@
           </div>
         </div>
         <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30 font-medium uppercase tracking-widest">
-          <p>© {{year}} {{business_name}} {{town}}. All Rights Reserved.</p>
+          <p>© 2026 {{business_name}} {{town}}. All Rights Reserved.</p>
           <div class="flex gap-8">
             <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
