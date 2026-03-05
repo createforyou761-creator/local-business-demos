@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gas & Plumbing Services - Reliable Plumbing Solutions in Blackpool</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Gas & Plumbing Services | Your Trusted Local Plumber in Blackpool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,12 +13,19 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -30,57 +37,52 @@
             }
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .animate-fade-up {
             animation: fadeInUp 0.8s ease-out;
         }
 
-        .animate-slide-in {
-            animation: slideIn 0.8s ease-out;
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
         }
 
         /* Top Banner */
         .top-banner {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #333;
-            padding: 12px 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            padding: 12px 0;
             text-align: center;
-            font-size: 14px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .top-banner p {
+            color: #000;
             font-weight: 500;
-            border-bottom: 3px solid #e6c200;
+            font-size: 14px;
         }
 
         .top-banner a {
-            color: #0066cc;
-            text-decoration: none;
+            color: #000;
+            text-decoration: underline;
             font-weight: 600;
-            border-bottom: 1px solid #0066cc;
         }
 
         /* Header */
         .header {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,31 +91,31 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #1e40af;
+            color: #1e3a8a;
+            text-decoration: none;
         }
 
         .header-phone {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 12px 24px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
         }
 
         .header-phone:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
-            padding: 100px 0;
-            text-align: center;
+            padding: 80px 0 100px;
             position: relative;
             overflow: hidden;
         }
@@ -125,32 +127,36 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 20L100 0v20z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 200px 40px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0px) translateY(0px); }
+            50% { transform: translateX(20px) translateY(-10px); }
         }
 
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #60a5fa, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .hero .tagline {
+        .hero p {
             font-size: 1.3rem;
             margin-bottom: 40px;
-            opacity: 0.9;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -161,93 +167,100 @@
         }
 
         .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
             transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
             border: none;
             cursor: pointer;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
             color: white;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
         }
 
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25d366, #128c7e);
+        .btn-secondary {
+            background: #25D366;
             color: white;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        .btn-whatsapp:hover {
+        .btn-secondary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
         }
 
         /* Trust Bar */
         .trust-bar {
-            background: #f8fafc;
-            padding: 40px 0;
-            border-top: 1px solid #e2e8f0;
+            background: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .trust-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
+        .trust-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .trust-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            text-align: center;
+            padding: 15px;
         }
 
-        .trust-icon {
-            font-size: 2.5rem;
-            color: #1e40af;
+        .trust-item .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
-        .trust-text {
+        .trust-item h4 {
+            font-size: 14px;
             font-weight: 600;
-            color: #334155;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .trust-item p {
+            font-size: 12px;
+            color: #666;
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: white;
-        }
-
-        .services-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             font-weight: 700;
-            color: #1e293b;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
             margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
@@ -258,193 +271,251 @@
 
         .service-card {
             background: white;
-            border-radius: 15px;
             padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            transition: left 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover::before {
+            left: 0;
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: #1e40af;
+            font-size: 48px;
             margin-bottom: 20px;
+            color: #1e3a8a;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
+            color: #1e3a8a;
             margin-bottom: 15px;
-            color: #1e293b;
         }
 
         .service-card p {
-            color: #64748b;
+            color: #666;
             line-height: 1.6;
         }
 
         /* About Section */
         .about {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            background: white;
         }
 
         .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .about p {
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
             font-size: 1.1rem;
-            color: #475569;
-            margin-bottom: 40px;
+            color: #666;
+            margin-bottom: 30px;
             line-height: 1.8;
         }
 
         .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            list-style: none;
         }
 
-        .benefit-item {
+        .benefits li {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #333;
         }
 
-        .benefit-icon {
-            font-size: 2rem;
-            color: #1e40af;
-        }
-
-        .benefit-text {
+        .benefits li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
             font-weight: 600;
-            color: #334155;
+            flex-shrink: 0;
         }
 
         /* Urgency Banner */
         .urgency-banner {
             background: linear-gradient(135deg, #dc2626, #ef4444);
             color: white;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
-            font-size: 1.1rem;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgency-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
         /* FAQ Section */
         .faq {
             padding: 80px 0;
-            background: white;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
-        .faq-content {
+        .faq-list {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
         .faq-item {
-            margin-bottom: 20px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .faq-item details {
             background: white;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .faq-item summary {
+        .faq-question {
+            width: 100%;
             padding: 25px;
-            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #1e293b;
-            background: #f8fafc;
-            border-bottom: 1px solid #e2e8f0;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: all 0.3s ease;
         }
 
-        .faq-item summary:hover {
-            background: #e2e8f0;
+        .faq-question:hover {
+            background: #f8fafc;
         }
 
-        .faq-item div {
-            padding: 25px;
-            color: #64748b;
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 25px;
+            color: #666;
             line-height: 1.6;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
         }
 
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             color: white;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
             text-align: center;
         }
 
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-icon {
+        .contact h2 {
             font-size: 2.5rem;
-            color: #93c5fd;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        .contact-item a {
-            color: white;
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
             text-decoration: none;
-            font-weight: 600;
+            color: white;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .contact-item a:hover {
-            color: #93c5fd;
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
 
         /* Floating Buttons */
         .floating-whatsapp {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #25d366, #128c7e);
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
             color: white;
             width: 60px;
             height: 60px;
@@ -453,121 +524,133 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
             transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
         .floating-whatsapp:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 8px 35px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
         }
 
         .floating-call {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
             color: white;
             padding: 15px 20px;
-            border-radius: 50px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            z-index: 1000;
             transition: all 0.3s ease;
             display: none;
         }
 
         .floating-call:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(30, 64, 175, 0.4);
         }
 
         /* Claim Button */
         .claim-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 50px 0;
             text-align: center;
         }
 
         .claim-btn {
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-            color: white;
+            background: white;
+            color: #059669;
             padding: 20px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 6px 25px rgba(220, 38, 38, 0.3);
+            display: inline-block;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .claim-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         /* Footer */
         .footer {
-            background: #1e293b;
+            background: #1f2937;
             color: white;
-            padding: 50px 0 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 0;
             text-align: center;
         }
 
-        .footer-info {
-            margin-bottom: 30px;
+        .footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        .footer-info h3 {
-            font-size: 1.5rem;
+        .footer p {
             margin-bottom: 10px;
-            color: #60a5fa;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .social-icon {
-            color: #94a3b8;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #60a5fa;
-            transform: translateY(-3px);
+            opacity: 0.8;
         }
 
         .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 20px;
-            color: #94a3b8;
-            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
         }
 
-        /* Mobile Responsiveness */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero .tagline {
+            .hero p {
                 font-size: 1.1rem;
             }
 
@@ -576,74 +659,49 @@
                 align-items: center;
             }
 
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .floating-call {
-                display: flex;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .logo {
-                font-size: 20px;
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .floating-whatsapp,
-            .floating-call {
-                bottom: 20px;
+            .trust-items {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            .floating-whatsapp {
-                right: 20px;
+            .contact-methods {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .floating-call {
-                left: 20px;
+                display: block;
+            }
+
+            .header-phone {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .logo {
+                font-size: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 60px 0;
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .services,
-            .about,
-            .faq,
-            .contact {
-                padding: 60px 0;
-            }
-
-            .trust-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
             }
         }
     </style>
@@ -651,79 +709,93 @@
 <body>
     <!-- Top Banner -->
     <div class="top-banner">
-        👋 Hi Gas & Plumbing Services, we built this free page for you! Like it? <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Gas%20%26%20Plumbing%20Services">Click here to claim it</a>.
+        <div class="container">
+            <p>👋 Hi Gas & Plumbing Services, we built this free page for you! Like it? <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Gas%20%26%20Plumbing%20Services">Click below to claim it.</a></p>
+        </div>
     </div>
 
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <div class="logo">Gas & Plumbing Services</div>
-            <a href="tel:+44 1253 966720" class="header-phone">📞 Call Now</a>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Gas & Plumbing Services</a>
+                <a href="tel:+441253966720" class="header-phone">📞 01253 966720</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content animate-fade-up">
-            <h1>Reliable Plumbing Solutions</h1>
-            <p class="tagline">Your trusted plumber in Blackpool</p>
-            <div class="hero-buttons">
-                <a href="tel:+44 1253 966720" class="btn btn-primary">📞 Call Now</a>
-                <a href="https://wa.me/441253966720" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+        <div class="container">
+            <div class="hero-content animate-fade-up">
+                <h1>Your Trusted Local Plumber</h1>
+                <p>Reliable plumbing services at your doorstep.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+441253966720" class="btn btn-primary">📞 Call Now</a>
+                    <a href="https://wa.me/441253966720" class="btn btn-secondary">💬 WhatsApp Us</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Trust Bar -->
     <section class="trust-bar">
-        <div class="trust-content">
-            <div class="trust-item">
-                <div class="trust-icon">⭐</div>
-                <div class="trust-text">5-Star Rating</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">👥</div>
-                <div class="trust-text">50+ Happy Customers</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🛡️</div>
-                <div class="trust-text">Fully Insured</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">💰</div>
-                <div class="trust-text">Free Quotes</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">🏠</div>
-                <div class="trust-text">Local Business</div>
+        <div class="container">
+            <div class="trust-items animate-fade-in">
+                <div class="trust-item">
+                    <div class="icon">⭐⭐⭐⭐⭐</div>
+                    <h4>5-Star Rating</h4>
+                    <p>Excellent Reviews</p>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">👥</div>
+                    <h4>50+ Happy Customers</h4>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">🛡️</div>
+                    <h4>Fully Insured</h4>
+                    <p>Complete Coverage</p>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">💰</div>
+                    <h4>Free Quotes</h4>
+                    <p>No Hidden Fees</p>
+                </div>
+                <div class="trust-item">
+                    <div class="icon">🏠</div>
+                    <h4>Local Business</h4>
+                    <p>Blackpool Based</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-        <div class="services-content">
+        <div class="container">
             <h2 class="section-title animate-fade-up">Our Services</h2>
+            <p class="section-subtitle">Professional plumbing solutions for homes and businesses in Blackpool</p>
             <div class="services-grid">
                 <div class="service-card animate-fade-up">
-                    <div class="service-icon">🚰</div>
-                    <h3>Emergency Plumbing</h3>
-                    <p>24/7 emergency plumbing services for burst pipes, leaks, and urgent repairs. We're here when you need us most.</p>
-                </div>
-                <div class="service-card animate-fade-up">
                     <div class="service-icon">🔧</div>
-                    <h3>Boiler Installation & Repair</h3>
-                    <p>Professional boiler installation, servicing, and repair services. Gas Safe registered engineers for your safety.</p>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency plumbing repairs for burst pipes, leaks, and urgent plumbing issues. Fast response guaranteed.</p>
                 </div>
                 <div class="service-card animate-fade-up">
                     <div class="service-icon">🚿</div>
                     <h3>Bathroom Installation</h3>
-                    <p>Complete bathroom installations and renovations. From design to completion, we handle everything professionally.</p>
+                    <p>Complete bathroom installations and renovations. From design to completion, we handle every detail.</p>
                 </div>
                 <div class="service-card animate-fade-up">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon">💧</div>
                     <h3>Leak Detection & Repair</h3>
-                    <p>Advanced leak detection services to identify hidden leaks and prevent costly water damage to your property.</p>
+                    <p>Advanced leak detection services to find hidden leaks and prevent water damage to your property.</p>
+                </div>
+                <div class="service-card animate-fade-up">
+                    <div class="service-icon">🔥</div>
+                    <h3>Boiler Services</h3>
+                    <p>Boiler installation, maintenance, and repair services. Keep your heating system running efficiently.</p>
                 </div>
             </div>
         </div>
@@ -731,119 +803,104 @@
 
     <!-- About Section -->
     <section class="about">
-        <div class="about-content">
-            <h2 class="section-title animate-fade-up">About Us</h2>
-            <p class="animate-fade-up">At Gas & Plumbing Services, we are dedicated to delivering quality plumbing services to our customers. Our team is committed to ensuring your plumbing needs are met with professionalism and care.</p>
-            <div class="benefits">
-                <div class="benefit-item animate-slide-in">
-                    <div class="benefit-icon">⚡</div>
-                    <div class="benefit-text">Same-Day Service Available</div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text animate-fade-up">
+                    <h2>About Us</h2>
+                    <p>At Gas & Plumbing Services, we are dedicated to providing quality plumbing solutions tailored to your needs. Our team is committed to ensuring your plumbing issues are resolved efficiently.</p>
+                    <ul class="benefits">
+                        <li>Licensed and experienced professionals</li>
+                        <li>Competitive pricing with no hidden costs</li>
+                        <li>Quick response times for emergencies</li>
+                        <li>Quality workmanship guaranteed</li>
+                    </ul>
                 </div>
-                <div class="benefit-item animate-slide-in">
-                    <div class="benefit-icon">🎯</div>
-                    <div class="benefit-text">Experienced Local Professionals</div>
-                </div>
-                <div class="benefit-item animate-slide-in">
-                    <div class="benefit-icon">💯</div>
-                    <div class="benefit-text">100% Satisfaction Guarantee</div>
-                </div>
-                <div class="benefit-item animate-slide-in">
-                    <div class="benefit-icon">💷</div>
-                    <div class="benefit-text">Competitive Fixed Prices</div>
+                <div class="about-image animate-fade-up">
+                    <div style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🔧</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        ⚡ Limited availability this week - contact us now to book
-    </div>
+    <section class="urgency-banner">
+        <div class="container">
+            <p>⚡ Limited availability this week - contact us now to book</p>
+        </div>
+    </section>
 
     <!-- FAQ Section -->
     <section class="faq">
-        <div class="faq-content">
+        <div class="container">
             <h2 class="section-title animate-fade-up">Frequently Asked Questions</h2>
-            <div class="faq-item animate-fade-up">
-                <details>
-                    <summary>Do you provide emergency plumbing services?</summary>
-                    <div>Yes, we offer 24/7 emergency plumbing services throughout Blackpool. Whether it's a burst pipe, major leak, or boiler breakdown, our experienced team is ready to respond quickly to minimize damage and restore your plumbing system.</div>
-                </details>
-            </div>
-            <div class="faq-item animate-fade-up">
-                <details>
-                    <summary>Are your plumbers Gas Safe registered?</summary>
-                    <div>Absolutely. All our plumbers are fully qualified and Gas Safe registered, ensuring all gas work is completed safely and to the highest standards. We also carry full public liability insurance for your peace of mind.</div>
-                </details>
-            </div>
-            <div class="faq-item animate-fade-up">
-                <details>
-                    <summary>Do you offer free quotes for plumbing work?</summary>
-                    <div>Yes, we provide free, no-obligation quotes for all plumbing installations and major repairs. We'll assess your requirements and provide a detailed written estimate with transparent pricing before any work begins.</div>
-                </details>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do you offer emergency plumbing services?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide 24/7 emergency plumbing services for urgent issues like burst pipes, major leaks, and blocked drains. Contact us immediately for rapid response.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Are your plumbers fully qualified and insured?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. All our plumbers are fully qualified, Gas Safe registered, and covered by comprehensive insurance for your peace of mind and protection.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do you provide free quotes?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer free, no-obligation quotes for all our services. We believe in transparent pricing with no hidden fees or surprises.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact">
-        <div class="contact-content">
-            <h2 class="section-title animate-fade-up">Contact Us Today</h2>
-            <p class="animate-fade-up">Ready to get your plumbing issues sorted? Get in touch with Blackpool's trusted plumbing experts.</p>
-            <div class="contact-info">
-                <div class="contact-item animate-fade-up">
-                    <div class="contact-icon">📞</div>
-                    <div>
-                        <h3>Call Us</h3>
-                        <a href="tel:+44 1253 966720">+44 1253 966720</a>
-                    </div>
-                </div>
-                <div class="contact-item animate-fade-up">
-                    <div class="contact-icon">💬</div>
-                    <div>
-                        <h3>WhatsApp</h3>
-                        <a href="https://wa.me/441253966720">Message Us</a>
-                    </div>
-                </div>
-                <div class="contact-item animate-fade-up">
-                    <div class="contact-icon">📍</div>
-                    <div>
-                        <h3>Service Area</h3>
-                        <p>Serving Blackpool</p>
-                    </div>
-                </div>
+        <div class="container">
+            <h2>Contact Us Today</h2>
+            <p>Ready to solve your plumbing problems? Get in touch with Blackpool's trusted plumbers.</p>
+            <div class="contact-methods">
+                <a href="tel:+441253966720" class="contact-method">📞 01253 966720</a>
+                <a href="https://wa.me/441253966720" class="contact-method">💬 WhatsApp</a>
             </div>
+            <p>Serving Blackpool and surrounding areas</p>
         </div>
     </section>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/441253966720" class="floating-whatsapp">💬</a>
-
-    <!-- Floating Call Button (Mobile Only) -->
-    <a href="tel:+44 1253 966720" class="floating-call">📞 Call Now</a>
-
-    <!-- Social Media Icons & Claim Button -->
-    <section class="claim-section">
-        <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Gas%20%26%20Plumbing%20Services" class="claim-btn">🚀 Claim This Page Free</a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h3>Gas & Plumbing Services</h3>
-                <p>Blackpool</p>
-                <p><a href="tel:+44 1253 966720" style="color: #93c5fd; text-decoration: none;">+44 1253 966720</a></p>
-            </div>
+    <!-- Social Media Icons -->
+    <section style="background: #1e3a8a; padding: 20px 0;">
+        <div class="container">
             <div class="social-icons">
                 <a href="#" class="social-icon">📘</a>
                 <a href="#" class="social-icon">📷</a>
                 <a href="#" class="social-icon">🎵</a>
             </div>
-            <div class="footer-bottom">
-                <p>Page created as a free preview</p>
-            </div>
         </div>
-    </footer>
-</body>
-</html>
+    </section>
+
+    <!-- Claim This Page -->
+    <section class="claim-section">
+        <div class="container">
+            <h2>Want to claim this page?</h2>
+            <p>This page was created as a free preview. Claim it to customize and manage your online presence.</p>
+            <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Gas%20%26%20Plumbing%20Services" class="claim-btn">🚀 Claim This Page Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3>Gas & Plumbing Services</h3>
+            <p>Blackpool's trusted local plumber</p>
+            <p>📞 <a href="tel:+441253966720" style="color: white;">01253 966720</a></p>
+            <div class="social-icons">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">
