@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feeney Plumbing Limited | Blackpool</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #1a1a1a; }
+    .section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+
+    .top-banner { background: #facc15; color: #000; text-align: center; padding: 14px 20px; font-weight: 600; }
+    .top-banner a { color: #000; text-decoration: underline; }
+
+    .header { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.08); z-index: 100; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .header-logo { font-size: 1.25rem; font-weight: 700; color: #1e40af; }
+    .header-phone { display: inline-flex; align-items: center; gap: 8px; background: #1e40af; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); color: #fff; padding: 100px 24px 80px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 16px; }
+    .hero .tagline { font-size: 1.25rem; opacity: .95; margin-bottom: 32px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .hero-btns a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .hero-btns a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+    .btn-call { background: #fff; color: #1e40af; }
+    .btn-wa { background: #25D366; color: #fff; }
+
+    .trust-bar { background: #f8fafc; padding: 24px 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: .95rem; font-weight: 500; color: #475569; }
+    .trust-bar span { display: inline-flex; align-items: center; gap: 6px; }
+
+    .services { background: #fff; }
+    .services h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; text-align: center; color: #1a1a1a; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,.08); border: 1px solid #e2e8f0; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+    .service-icon { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .service-card h3 { font-size: 1.15rem; margin-bottom: 8px; color: #1a1a1a; }
+    .service-card p { color: #64748b; font-size: .95rem; }
+
+    .about { background: #f8fafc; }
+    .about h2 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+    .about-text { margin-bottom: 24px; color: #475569; }
+    .about ul { list-style: none; }
+    .about ul li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: #334155; }
+    .about ul li i { color: #22c55e; font-size: 1.1rem; }
+
+    .urgency { background: linear-gradient(90deg, #dc2626, #ea580c); color: #fff; text-align: center; padding: 20px 24px; font-weight: 700; font-size: 1.1rem; }
+
+    .faq { background: #fff; }
+    .faq h2 { font-size: 2rem; font-weight: 700; margin-bottom: 32px; text-align: center; color: #1a1a1a; }
+    .faq-toggle { display: none; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { display: block; padding: 18px 20px; cursor: pointer; font-weight: 600; color: #1a1a1a; }
+    .faq-q::after { content: '\002B'; float: right; }
+    .faq-toggle:checked + .faq-q::after { content: '\2212'; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s; }
+    .faq-toggle:checked ~ .faq-a { max-height: 200px; }
+    .faq-a p { padding: 0 20px 18px; color: #475569; }
+
+    .contact { background: #f8fafc; }
+    .contact h2 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; text-align: center; color: #1a1a1a; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #1e40af; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .contact-serving { text-align: center; color: #64748b; margin-bottom: 24px; }
+    .social-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .social-btn { width: 50px; height: 50px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: transform .2s; }
+    .social-btn:hover { transform: translateY(-3px); }
+    .social-fb { background: #1877F2; }
+    .social-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .social-tt { background: #000; }
+    .social-wa { background: #25D366; }
+
+    .claim-section { background: #1e40af; color: #fff; text-align: center; padding: 80px 24px; }
+    .claim-section h2 { font-size: 2rem; margin-bottom: 16px; }
+    .claim-section .claim-btn { display: inline-block; background: #22c55e; color: #fff; padding: 18px 36px; border-radius: 8px; font-weight: 700; font-size: 1.2rem; text-decoration: none; margin-top: 16px; transition: transform .2s; }
+    .claim-section .claim-btn:hover { transform: translateY(-2px); }
+
+    .footer { background: #0f172a; color: #fff; padding: 48px 24px 32px; text-align: center; }
+    .footer .footer-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+    .footer .footer-meta { color: #94a3b8; font-size: .9rem; margin-bottom: 20px; }
+    .footer .social-row { margin-bottom: 20px; }
+    .footer .footer-note { font-size: .8rem; color: #64748b; }
+
+    .float-wa { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; box-shadow: 0 4px 20px rgba(0,0,0,.2); z-index: 99; text-decoration: none; transition: transform .2s; }
+    .float-wa:hover { transform: scale(1.05); }
+    .float-call { position: fixed; bottom: 24px; left: 24px; padding: 14px 20px; background: #1e40af; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; z-index: 99; display: none; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    @media (max-width: 768px) { .float-call { display: inline-flex; align-items: center; gap: 8px; } }
+  </style>
+</head>
+<body>
+  <div class="top-banner">👋 Hi Feeney Plumbing Limited, we built this page free for you! <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Feeney%20Plumbing%20Limited">Claim it here</a>.</div>
+  <header class="header">
+    <span class="header-logo">Feeney Plumbing Limited</span>
+    <a class="header-phone" href="tel:+44 7436 863911"><i class="fas fa-phone"></i> +44 7436 863911</a>
+  </header>
+  <section class="hero">
+    <h1>Your Trusted Blackpool Plumber</h1>
+    <p class="tagline">Reliable plumbing solutions for your home.</p>
+    <div class="hero-btns">
+      <a class="btn-call" href="tel:+44 7436 863911"><i class="fas fa-phone"></i> Call Now</a>
+      <a class="btn-wa" href="https://wa.me/447436863911"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </section>
+  <div class="trust-bar">
+    <span><i class="fas fa-star" style="color:#facc15;"></i> 5-Star Rated</span>
+    <span>50+ Happy Customers</span>
+    <span>Fully Insured</span>
+    <span>Free Quotes</span>
+    <span>Local Business</span>
+  </div>
+  <section class="section services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-wrench"></i></div>
+              <h3>Emergency Plumbing Repairs</h3>
+              <p>24/7 emergency plumbing services for burst pipes, blocked drains, and urgent repairs throughout Blackpool.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-fire"></i></div>
+              <h3>Boiler Installation &amp; Service</h3>
+              <p>Professional boiler installation, servicing, and repairs to keep your home warm and efficient year-round.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-bath"></i></div>
+              <h3>Bathroom Renovations</h3>
+              <p>Complete bathroom fitting and renovation services, from design to installation with quality fixtures and fittings.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-tint"></i></div>
+              <h3>Leak Detection &amp; Repair</h3>
+              <p>Expert leak detection using modern equipment and prompt repairs to prevent water damage in your property.</p>
+            </div>
+    </div>
+  </section>
+  <section class="section about">
+    <h2>About Us</h2>
+    <div class="about-text">At Feeney Plumbing Limited, we are dedicated to providing quality plumbing services to the Blackpool community. Our team is committed to ensuring your plumbing needs are met with professionalism and care.</div>
+    <ul><li><i class="fas fa-check-circle"></i> Local Blackpool experts with deep community knowledge</li><li><i class="fas fa-check-circle"></i> Fully qualified and insured professional plumbers</li><li><i class="fas fa-check-circle"></i> Competitive pricing with transparent quotes</li><li><i class="fas fa-check-circle"></i> Same-day service available for urgent repairs</li>
+    </ul>
+  </section>
+  <div class="urgency">⚡ Limited availability this week — contact us now to book</div>
+  <section class="section faq">
+    <h2>FAQ</h2>
+    
+            <div class="faq-item">
+              <input type="checkbox" id="faq0" class="faq-toggle" />
+              <label for="faq0" class="faq-q">Do you offer 24/7 emergency plumbing services in Blackpool?</label>
+              <div class="faq-a"><p>Yes, we provide round-the-clock emergency plumbing services throughout Blackpool and surrounding areas. Call us anytime for urgent repairs like burst pipes or severe blockages.</p></div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq1" class="faq-toggle" />
+              <label for="faq1" class="faq-q">How quickly can you respond to a plumbing emergency?</label>
+              <div class="faq-a"><p>We aim to reach emergency callouts within 60 minutes in most areas of Blackpool. Our local knowledge helps us navigate quickly to your property when you need us most.</p></div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq2" class="faq-toggle" />
+              <label for="faq2" class="faq-q">Do you provide free quotes for plumbing work?</label>
+              <div class="faq-a"><p>Absolutely! We offer free, no-obligation quotes for all planned plumbing work including installations and renovations. Emergency callout quotes are provided on-site before any work begins.</p></div>
+            </div>
+  </section>
+  <section class="section contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-links">
+      <a href="tel:+44 7436 863911"><i class="fas fa-phone"></i> +44 7436 863911</a>
+      <a href="mailto:"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://wa.me/447436863911"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <p class="contact-serving">Serving Blackpool</p>
+    <div class="social-row">
+      <a href="#" class="social-btn social-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-btn social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-btn social-tt" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/447436863911" class="social-btn social-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </section>
+  <section class="claim-section">
+    <h2>Love your new page?</h2>
+    <p>Claim it free — we'll set everything up for you.</p>
+    <a class="claim-btn" href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20Feeney%20Plumbing%20Limited">🚀 Claim This Page Free</a>
+  </section>
+  <footer class="footer">
+    <div class="footer-name">Feeney Plumbing Limited</div>
+    <div class="footer-meta">Blackpool · <a href="tel:+44 7436 863911" style="color:#94a3b8;">+44 7436 863911</a></div>
+    <div class="social-row">
+      <a href="#" class="social-btn social-fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-btn social-ig"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-btn social-tt"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/447436863911" class="social-btn social-wa"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p class="footer-note">Page created as a free preview</p>
+  </footer>
+  <a class="float-wa" href="https://wa.me/447436863911" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a class="float-call" href="tel:+44 7436 863911"><i class="fas fa-phone"></i> Call Now</a>
+</body>
+</html>
