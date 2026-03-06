@@ -3,871 +3,1377 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="[tagline]" />
-  <title>Seaside plumbing and heating ltd – Blackpool Plumbing</title>
+  <title>Seaside plumbing and heating ltd — Trusted Plumbers in Blackpool</title>
+  <meta name="description" content="Your Trusted Local Plumbing Experts — Seaside plumbing and heating ltd serving Blackpool and surrounding areas. Call +44 125 328 3900 for same-day service." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- JSON-LD Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    "name": "Seaside plumbing and heating ltd",
+    "description": "Your Trusted Local Plumbing Experts",
+    "telephone": "+44 125 328 3900",
+    "email": "",
+    "address": { "@type": "PostalAddress", "streetAddress": "" },
+    "areaServed": "Blackpool",
+    "openingHours": "Mon-Fri 8am-6pm, Sat 9am-4pm, 24/7 Emergency",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5" },
+    "sameAs": ["#", "#", "#"]
+  }
+  </script>
+
   <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES
+    ============================================ */
     :root {
-      --font-syne: "Syne", sans-serif;
-      --font-dm-sans: "DM Sans", sans-serif;
-      --color-navy: #0d1b2a;
-      --color-amber: #f5a623;
-      --color-body: #1a2a3a;
-      --color-muted: #6b7f93;
-      --color-light-grey: #f4f6f9;
+      --navy:         #080f1e;
+      --navy-mid:     #111827;
+      --navy-soft:    #1a2740;
+      --accent:       #2563eb;
+      --accent-dark:  #1d4ed8;
+      --accent-glow:  rgba(37,99,235,0.28);
+      --accent-light: #eff6ff;
+      --cyan:         #06b6d4;
+      --cyan-light:   #ecfeff;
+      --amber:        #f59e0b;
+      --green:        #25d366;
+      --green-dark:   #1da851;
+      --yellow:       #fbbf24;
+      --white:        #ffffff;
+      --off-white:    #f8fafc;
+      --section-blue: #f0f6ff;
+      --grey-light:   #f1f5f9;
+      --grey-mid:     #e2e8f0;
+      --grey-text:    #64748b;
+      --body-text:    #374151;
+      --heading:      #080f1e;
+
+      --font-heading: 'Poppins', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:    0 4px 24px rgba(0,0,0,0.09);
+      --shadow-lg:    0 12px 48px rgba(0,0,0,0.13);
+      --shadow-blue:  0 8px 32px rgba(37,99,235,0.22);
+      --shadow-cyan:  0 8px 32px rgba(6,182,212,0.2);
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  20px;
+      --radius-xl:  28px;
+      --section-pad: 100px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: var(--font-dm-sans);
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--color-body);
-      background: #fff;
+      font-family: var(--font-body);
+      color: var(--body-text);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-syne);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .font-syne { font-family: var(--font-syne); }
-    .min-h-screen { min-height: 100vh; }
-    .selection\\:bg-amber\\/30 ::selection { background: rgba(245, 166, 35, 0.3); }
-    ::selection { background: rgba(245, 166, 35, 0.3); }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    h1,h2,h3,h4 { font-family: var(--font-heading); color: var(--heading); line-height: 1.15; }
 
-    .heading-fluid {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      line-height: 1.1;
-    }
-    .section-padding { padding-top: 60px; padding-bottom: 60px; }
-    @media (min-width: 768px) { .section-padding { padding-top: 80px; padding-bottom: 80px; } }
-    .container-custom { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
-    .perspective-1000 { perspective: 1000px; }
+    /* ============================================
+       UTILITY
+    ============================================ */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
 
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(245, 166, 35, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
-    }
-    .animate-pulse-glow { animation: pulse-glow 2s infinite; }
-
-    /* Layout utilities */
-    .flex { display: flex; }
-    .inline-flex { display: inline-flex; }
-    .grid { display: grid; }
-    .hidden { display: none; }
-    .block { display: block; }
-    @media (min-width: 768px) { .md\\:block { display: block; } }
-    @media (min-width: 1024px) { .lg\\:flex { display: flex; } }
-
-    .flex-col { flex-direction: column; }
-    .flex-wrap { flex-wrap: wrap; }
-    .items-center { align-items: center; }
-    .justify-center { justify-content: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-1 { gap: 4px; }
-    .gap-2 { gap: 8px; }
-    .gap-3 { gap: 12px; }
-    .gap-4 { gap: 16px; }
-    .gap-6 { gap: 24px; }
-    .gap-8 { gap: 32px; }
-    .gap-16 { gap: 64px; }
-    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-cols-1 { grid-template-columns: 1fr; }
-    @media (min-width: 768px) {
-      .md\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .md\\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-      .md\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .lg\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .lg\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .font-syne { font-family: var(--font-syne); }
-    .text-center { text-align: center; }
-    .uppercase { text-transform: uppercase; }
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .fixed { position: fixed; }
-    .sticky { position: sticky; }
-    .top-0 { top: 0; }
-    .bottom-8 { bottom: 32px; }
-    .right-8 { right: 32px; }
-    .left-8 { left: 32px; }
-    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-    .-inset-4 { top: -16px; right: -16px; bottom: -16px; left: -16px; }
-    .top-1\\/2 { top: 50%; }
-    .left-1\\/2 { left: 50%; }
-    .-translate-x-1\\/2 { transform: translateX(-50%); }
-    .-translate-y-1\\/2 { transform: translateY(-50%); }
-    .z-10 { z-index: 10; }
-    .z-50 { z-index: 50; }
-    .z-\\[100\\] { z-index: 100; }
-
-    .w-2 { width: 8px; }
-    .h-2 { height: 8px; }
-    .w-4 { width: 16px; }
-    .h-4 { height: 16px; }
-    .w-5 { width: 20px; }
-    .h-5 { height: 20px; }
-    .w-6 { width: 24px; }
-    .h-6 { height: 24px; }
-    .w-8 { width: 32px; }
-    .h-8 { height: 32px; }
-    .w-10 { width: 40px; }
-    .h-10 { height: 40px; }
-    .w-14 { width: 56px; }
-    .h-14 { height: 56px; }
-    .w-full { width: 100%; }
-    .h-full { height: 100%; }
-    .max-w-sm { max-width: 24rem; }
-    .max-w-lg { max-width: 32rem; }
-    .max-w-2xl { max-width: 42rem; }
-    .max-w-3xl { max-width: 48rem; }
-
-    .p-4 { padding: 16px; }
-    .p-6 { padding: 24px; }
-    .p-8 { padding: 32px; }
-    .px-4 { padding-left: 16px; padding-right: 16px; }
-    .px-6 { padding-left: 24px; padding-right: 24px; }
-    .px-8 { padding-left: 32px; padding-right: 32px; }
-    .py-2 { padding-top: 8px; padding-bottom: 8px; }
-    .py-3 { padding-top: 12px; padding-bottom: 12px; }
-    .py-4 { padding-top: 16px; padding-bottom: 16px; }
-    .py-5 { padding-top: 20px; padding-bottom: 20px; }
-    .py-6 { padding-bottom: 24px; }
-    .py-8 { padding-top: 32px; padding-bottom: 32px; }
-    .py-10 { padding-top: 40px; padding-bottom: 40px; }
-    .py-20 { padding-top: 80px; padding-bottom: 80px; }
-    .pt-8 { padding-top: 32px; }
-    .pt-10 { padding-top: 40px; }
-    .pt-20 { padding-top: 80px; }
-    .pb-1 { padding-bottom: 4px; }
-    .pb-2 { padding-bottom: 8px; }
-    .pb-6 { padding-bottom: 24px; }
-    .pb-8 { padding-bottom: 32px; }
-    .pb-10 { padding-bottom: 40px; }
-    .mb-1 { margin-bottom: 4px; }
-    .mb-2 { margin-bottom: 8px; }
-    .mb-4 { margin-bottom: 16px; }
-    .mb-6 { margin-bottom: 24px; }
-    .mb-8 { margin-bottom: 32px; }
-    .mb-10 { margin-bottom: 40px; }
-    .mb-16 { margin-bottom: 64px; }
-    .mr-4 { margin-right: 16px; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .-translate-y-0\\.5 { transform: translateY(-2px); }
-
-    .rounded-full { border-radius: 9999px; }
-    .rounded-lg { border-radius: 8px; }
-    .rounded-xl { border-radius: 12px; }
-    .rounded-2xl { border-radius: 16px; }
-    .rounded-3xl { border-radius: 24px; }
-
-    .border { border-width: 1px; }
-    .border-2 { border-width: 2px; }
-    .border-b { border-bottom-width: 1px; }
-    .border-t { border-top-width: 1px; }
-    .border-y { border-top-width: 1px; border-bottom-width: 1px; }
-    .border-dashed { border-style: dashed; }
-    .border-black\\/5 { border-color: rgba(0,0,0,0.05); }
-    .border-white\\/10 { border-color: rgba(255,255,255,0.1); }
-    .border-amber\\/30 { border-color: rgba(245,166,35,0.3); }
-
-    .bg-white { background-color: #fff; }
-    .bg-navy { background-color: var(--color-navy); }
-    .bg-amber { background-color: var(--color-amber); }
-    .bg-light-grey { background-color: var(--color-light-grey); }
-    .bg-white\\/5 { background-color: rgba(255,255,255,0.05); }
-    .bg-white\\/10 { background-color: rgba(255,255,255,0.1); }
-    .bg-amber\\/10 { background-color: rgba(245,166,35,0.1); }
-    .bg-amber\\/20 { background-color: rgba(245,166,35,0.2); }
-    .bg-navy\\/40 { background-color: rgba(13,27,42,0.4); }
-    .bg-blue-500\\/10 { background-color: rgba(59,130,246,0.1); }
-
-    .text-white { color: #fff; }
-    .text-navy { color: var(--color-navy); }
-    .text-amber { color: var(--color-amber); }
-    .text-muted { color: var(--color-muted); }
-    .text-white\\/40 { color: rgba(255,255,255,0.4); }
-    .text-white\\/50 { color: rgba(255,255,255,0.5); }
-    .text-white\\/70 { color: rgba(255,255,255,0.7); }
-    .text-white\\/90 { color: rgba(255,255,255,0.9); }
-    .text-amber\\/60 { color: rgba(245,166,35,0.6); }
-    .text-navy\\/80 { color: rgba(13,27,42,0.8); }
-
-    .text-xs { font-size: 0.75rem; }
-    .text-sm { font-size: 0.875rem; }
-    .text-lg { font-size: 1.125rem; }
-    .text-xl { font-size: 1.25rem; }
-    .text-2xl { font-size: 1.5rem; }
-    .text-3xl { font-size: 1.875rem; }
-    .text-4xl { font-size: 2.25rem; }
-    .text-5xl { font-size: 3rem; }
-    .text-6xl { font-size: 3.75rem; }
-    .text-\\[10px\\] { font-size: 10px; }
-
-    .font-medium { font-weight: 500; }
-    .font-bold { font-weight: 700; }
-    .font-extrabold { font-weight: 800; }
-    .tracking-tight { letter-spacing: -0.025em; }
-    .tracking-tighter { letter-spacing: -0.05em; }
-    .tracking-wider { letter-spacing: 0.05em; }
-    .tracking-widest { letter-spacing: 0.1em; }
-    .leading-relaxed { line-height: 1.625; }
-
-    .opacity-50 { opacity: 0.5; }
-    .opacity-\\[0\\.03\\] { opacity: 0.03; }
-    .overflow-hidden { overflow: hidden; }
-    .overflow-visible { overflow: visible; }
-    .pointer-events-none { pointer-events: none; }
-    .cursor-default { cursor: default; }
-    .cursor-pointer { cursor: pointer; }
-    .whitespace-nowrap { white-space: nowrap; }
-
-    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); }
-    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
-    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
-    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
-    .blur-2xl { filter: blur(40px); }
-    .blur-\\[100px\\] { filter: blur(100px); }
-    .blur-\\[120px\\] { filter: blur(120px); }
-
-    .backdrop-blur-sm { backdrop-filter: blur(4px); }
-    .backdrop-blur-xl { backdrop-filter: blur(24px); }
-    .grayscale { filter: grayscale(100%); }
-    .object-cover { object-fit: cover; }
-
-    .transition-all { transition: all 0.2s ease; }
-    .transition-colors { transition: color 0.2s ease, background-color 0.2s ease; }
-    .transition-transform { transition: transform 0.2s ease; }
-    .duration-200 { transition-duration: 200ms; }
-    .duration-300 { transition-duration: 300ms; }
-    .duration-500 { transition-duration: 500ms; }
-    .duration-700 { transition-duration: 700ms; }
-
-    .hover\\:grayscale-0:hover { filter: grayscale(0); }
-    .hover\\:bg-amber:hover { background-color: var(--color-amber); }
-    .hover\\:bg-navy:hover { background-color: var(--color-navy); }
-    .hover\\:bg-white\\/20:hover { background-color: rgba(255,255,255,0.2); }
-    .hover\\:bg-amber\\/90:hover { background-color: rgba(245,166,35,0.9); }
-    .hover\\:text-white:hover { color: #fff; }
-    .hover\\:text-navy:hover { color: var(--color-navy); }
-    .hover\\:text-amber:hover { color: var(--color-amber); }
-    .hover\\:scale-110:hover { transform: scale(1.1); }
-    .hover\\:shadow-amber\\/20:hover { box-shadow: 0 10px 15px -3px rgba(245,166,35,0.2); }
-    .group:hover .group-hover\\:opacity-100 { opacity: 1; }
-    .group:hover .group-hover\\:translate-x-0 { transform: translateX(0); }
-    .group:hover .group-hover\\:scale-110 { transform: scale(1.1); }
-
-    .inline-block { display: inline-block; }
-    .space-y-4 > * + * { margin-top: 16px; }
-    .space-y-5 > * + * { margin-top: 20px; }
-    .aspect-square { aspect-ratio: 1 / 1; }
-
-    /* Hero / layout */
-    .min-h-\\[calc\\(100vh-80px\\)\\] { min-height: calc(100vh - 80px); }
-    .top-\\[-10%\\] { top: -10%; }
-    .right-\\[-10%\\] { right: -10%; }
-    .bottom-\\[-10%\\] { bottom: -10%; }
-    .left-\\[-10%\\] { left: -10%; }
-    .w-\\[60%\\] { width: 60%; }
-    .h-\\[60%\\] { height: 60%; }
-    .w-\\[40%\\] { width: 40%; }
-    .h-\\[40%\\] { height: 40%; }
-    .mr-\\[0\\.2em\\] { margin-right: 0.2em; }
-    .pb-\\[0\\.1em\\] { padding-bottom: 0.1em; }
-
-    /* Button */
     .btn {
-      padding: 16px 32px;
-      border-radius: 9999px;
-      font-family: var(--font-dm-sans);
-      font-weight: 500;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 28px; border-radius: 100px;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+      cursor: pointer; border: none; transition: all 0.22s cubic-bezier(.4,0,.2,1);
+      white-space: nowrap; position: relative; overflow: hidden;
     }
-    .btn-primary { background: var(--color-amber); color: var(--color-navy); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-    .btn-primary:hover { background: rgba(245,166,35,0.9); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(245,166,35,0.2); }
-    .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; }
-    .btn-secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
-    .btn-outline { border: 2px solid var(--color-navy); color: var(--color-navy); background: transparent; }
-    .btn-outline:hover { background: var(--color-navy); color: #fff; transform: translateY(-2px); }
-    .btn-navy { background: var(--color-navy); color: #fff; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-    .btn-navy:hover { background: rgba(13,27,42,0.9); transform: translateY(-2px); }
-    .btn-sm { padding: 12px 24px; font-size: 0.875rem; }
-
-    /* Nav scrolled */
-    nav.nav-scrolled { padding-top: 12px; padding-bottom: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-
-    /* Fade-up (JS will set .is-visible) */
-    .fade-up { opacity: 0; transform: translateY(40px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .fade-up.is-visible { opacity: 1; transform: translateY(0) scale(1); }
-    .fade-up.trust-item.is-visible { opacity: 0.6; }
-    .fade-up.trust-item.is-visible:hover { opacity: 1; }
-
-    /* Text reveal words */
-    .text-reveal-word { display: inline-block; overflow: hidden; margin-right: 0.2em; padding-bottom: 0.1em; }
-    .text-reveal-word span { display: inline-block; transform: translateY(100%); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .text-reveal-word.revealed span { transform: translateY(0); }
-
-    /* Hero card float */
-    @keyframes hero-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0); transition: background 0.2s;
     }
-    .hero-card-float { animation: hero-float 4s ease-in-out infinite; }
+    .btn:hover::after { background: rgba(255,255,255,0.08); }
 
-    /* Hero card: stronger contrast so text is readable */
-    #hero-card {
-      background: linear-gradient(135deg, rgba(13, 27, 42, 0.92) 0%, rgba(13, 27, 42, 0.88) 100%);
-      border: 2px solid rgba(245, 166, 35, 0.5);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    .btn-primary {
+      background: var(--accent); color: var(--white);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.35);
     }
-    .hero-card-title {
-      display: block;
-      padding: 0.75rem 1rem 0.75rem 1rem;
-      margin: -0.5rem -0.5rem 1.5rem -0.5rem;
-      margin-left: 0;
-      padding-left: 1rem;
-      border-left: 4px solid var(--color-amber);
-      background: linear-gradient(90deg, rgba(245, 166, 35, 0.12) 0%, transparent 100%);
-      border-radius: 0 8px 8px 0;
-      color: #fff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-      letter-spacing: -0.02em;
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,0.45); }
+
+    .btn-navy { background: var(--navy); color: var(--white); box-shadow: var(--shadow-sm); }
+    .btn-navy:hover { background: var(--navy-soft); transform: translateY(-2px); }
+
+    .btn-green { background: var(--green); color: var(--white); box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+
+    .btn-white { background: var(--white); color: var(--navy); box-shadow: var(--shadow-md); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    .btn-lg { padding: 18px 38px; font-size: 1rem; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px;
     }
-    .hero-card-list { color: #fff; }
-    .hero-card-list li { color: rgba(255, 255, 255, 0.95); }
-
-    .about-photo-placeholder { min-height: 200px; }
-
-    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-    @keyframes pulse { 50% { opacity: 0.5; } }
-
-    .flex-shrink-0 { flex-shrink: 0; }
-    @media (min-width: 768px) {
-      .md\\:flex-row { flex-direction: row; }
+    .section-label::before {
+      content: ''; width: 18px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      border-radius: 2px;
     }
-    /* SVG icons */
-    .icon { flex-shrink: 0; }
-    .icon-amber { color: var(--color-amber); }
-    .fill-amber { fill: var(--color-amber); }
-    .fill-current { fill: currentColor; }
+    .section-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+      font-weight: 800; margin-bottom: 18px;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--grey-text); max-width: 540px; line-height: 1.75; }
+
+    /* Decorative dot-grid pattern (reusable) */
+    .dot-grid {
+      background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS — multi-variant
+    ============================================ */
+    /* Fade up (default) */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.6s cubic-bezier(.16,1,.3,1), transform 0.6s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Slide from left */
+    .reveal-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    /* Slide from right */
+    .reveal-right { opacity: 0; transform: translateX(48px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Scale in */
+    .reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.55s cubic-bezier(.16,1,.3,1), transform 0.55s cubic-bezier(.16,1,.3,1); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Clip-path wipe (for labels/chips) */
+    .reveal-clip { opacity: 0; clip-path: inset(0 100% 0 0); transition: opacity 0.5s ease, clip-path 0.55s cubic-bezier(.16,1,.3,1); }
+    .reveal-clip.visible { opacity: 1; clip-path: inset(0 0% 0 0); }
+
+    /* Stagger delays */
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+    .d5 { transition-delay: 0.40s; }
+
+    /* ============================================
+       1. ANNOUNCEMENT BAR
+    ============================================ */
+    #announcement-bar {
+      background: linear-gradient(90deg, #78350f, #92400e);
+      padding: 11px 24px; text-align: center; position: relative; z-index: 1000;
+    }
+    #announcement-bar p { font-size: 0.85rem; font-weight: 600; color: #fef3c7; }
+    #announcement-bar a { color: var(--yellow); border-bottom: 1px solid var(--yellow); }
+    .close-bar {
+      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; font-size: 1rem;
+      color: #fef3c7; opacity: 0.6; transition: opacity 0.2s;
+    }
+    .close-bar:hover { opacity: 1; }
+
+    /* ============================================
+       2. STICKY HEADER
+    ============================================ */
+    #site-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 16px 0;
+      transition: padding 0.3s ease, box-shadow 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #site-header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.09);
+      border-bottom-color: var(--grey-mid);
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem; color: var(--navy); }
+    .logo img { height: 38px; width: auto; object-fit: contain; }
+    .logo-icon { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--cyan)); display: flex; align-items: center; justify-content: center; }
+    .logo-icon i { color: white; font-size: 0.9rem; }
+
+    .main-nav { display: flex; gap: 32px; }
+    .main-nav a { font-size: 0.88rem; font-weight: 500; color: var(--grey-text); transition: color 0.2s; position: relative; padding-bottom: 2px; }
+    .main-nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--accent); border-radius: 2px; transition: width 0.25s ease; }
+    .main-nav a:hover { color: var(--accent); }
+    .main-nav a:hover::after { width: 100%; }
+
+    .header-ctas { display: flex; gap: 8px; align-items: center; }
+    .header-ctas .btn { padding: 10px 18px; font-size: 0.82rem; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-nav { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--grey-mid); padding: 16px 24px 24px; gap: 0; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { padding: 13px 0; font-size: 0.95rem; font-weight: 500; color: var(--navy); border-bottom: 1px solid var(--grey-light); }
+    .mobile-nav .btn { margin-top: 16px; width: 100%; justify-content: center; }
+
+    /* ============================================
+       3. HERO SECTION
+    ============================================ */
+    #hero {
+      min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; overflow: hidden; position: relative;
+    }
+    /* Animated mesh background on hero left */
+    #hero::before {
+      content: ''; position: absolute; top: -60%; left: -20%; width: 70%; height: 200%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(37,99,235,0.07) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(6,182,212,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      padding: 80px 48px 80px max(24px, calc((100vw - 1200px) / 2));
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan-light));
+      border: 1px solid rgba(37,99,235,0.15);
+      color: var(--accent); padding: 7px 16px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 26px;
+    }
+    .hero-eyebrow .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); animation: live-pulse 2s infinite;
+    }
+    @keyframes live-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.6); }
+      50% { box-shadow: 0 0 0 5px rgba(37,99,235,0); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 4.5vw, 4.2rem); font-weight: 900; line-height: 1.07;
+      margin-bottom: 22px; color: var(--navy); letter-spacing: -0.02em;
+    }
+    .hero-title .accent-word {
+      color: transparent;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .hero-tagline { font-size: 1.12rem; color: var(--grey-text); margin-bottom: 40px; max-width: 460px; line-height: 1.75; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+
+    .trust-badges { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-bottom: 32px; }
+    .trust-badge { display: flex; align-items: center; gap: 7px; font-size: 0.84rem; font-weight: 500; color: var(--body-text); }
+    .trust-badge .check { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cyan)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .trust-badge .check i { color: white; font-size: 0.6rem; }
+
+    .star-rating { display: flex; align-items: center; gap: 10px; }
+    .stars { font-size: 1rem; letter-spacing: 1px; }
+    .star { color: var(--amber); }
+    .rating-text { font-size: 0.85rem; color: var(--grey-text); font-weight: 500; }
+    .rating-score { font-weight: 800; color: var(--navy); font-size: 1rem; }
+
+    .hero-image-wrap { position: relative; height: 100%; min-height: 88vh; overflow: hidden; }
+    .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-image-placeholder {
+      width: 100%; height: 100%; min-height: 88vh;
+      background: linear-gradient(145deg, #0f1f3d 0%, var(--navy) 100%);
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+    }
+    .hero-image-placeholder i { font-size: 5rem; color: rgba(255,255,255,0.1); }
+    .hero-image-placeholder p { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(100deg, rgba(8,15,30,0.2) 0%, transparent 55%); }
+
+    /* Floating card on hero image */
+    .hero-badge-float {
+      position: absolute; bottom: 48px; left: -24px;
+      background: white; border-radius: var(--radius-md); padding: 14px 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      display: flex; align-items: center; gap: 12px;
+      animation: float-badge 4s ease-in-out infinite;
+      z-index: 2;
+    }
+    @keyframes float-badge {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .badge-icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--cyan)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .badge-icon i { color: white; }
+    .badge-text .top { font-weight: 800; font-size: 1rem; color: var(--navy); line-height: 1; }
+    .badge-text .bot { font-size: 0.75rem; color: var(--grey-text); margin-top: 3px; }
+
+    .hero-badge-float-2 {
+      position: absolute; top: 56px; right: 32px;
+      background: white; border-radius: var(--radius-md); padding: 12px 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      display: flex; align-items: center; gap: 10px;
+      animation: float-badge 5s ease-in-out 1.5s infinite;
+      z-index: 2;
+    }
+
+    /* ============================================
+       4. TRUST BAR
+    ============================================ */
+    #trust-bar {
+      background: var(--navy); padding: 0; overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .trust-marquee-wrap { overflow: hidden; position: relative; }
+    .trust-marquee-wrap::before,
+    .trust-marquee-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1;
+    }
+    .trust-marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--navy), transparent); }
+    .trust-marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--navy), transparent); }
+
+    .trust-marquee {
+      display: flex; animation: marquee-scroll 28s linear infinite; width: max-content;
+    }
+    .trust-marquee:hover { animation-play-state: paused; }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 20px 40px; white-space: nowrap;
+      font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.85);
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item .ti-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.3), rgba(6,182,212,0.3));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================
+       5. SERVICES SECTION
+    ============================================ */
+    #services { padding: var(--section-pad) 0; background: var(--white); position: relative; }
+    #services::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--grey-mid), transparent);
+    }
+    .services-header { text-align: center; margin-bottom: 64px; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-header .section-label { justify-content: center; }
+    .services-header .section-label::before { display: none; }
+    .services-header .section-label::after { content: ''; width: 18px; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--accent)); border-radius: 2px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+
+    .service-card {
+      background: var(--white); border: 1.5px solid var(--grey-mid);
+      border-radius: var(--radius-lg); padding: 36px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s cubic-bezier(.16,1,.3,1);
+      cursor: default;
+    }
+    /* Gradient corner glow on hover */
+    .service-card::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.12), transparent 70%);
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .service-card:hover { border-color: var(--accent); box-shadow: 0 16px 48px rgba(37,99,235,0.14); transform: translateY(-6px); }
+    .service-card:hover::before { opacity: 1; }
+
+    /* Animated accent line at card top */
+    .service-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      border-radius: 0 0 0 0; transition: right 0.4s cubic-bezier(.16,1,.3,1);
+    }
+    .service-card:hover::after { right: 0; }
+
+    .service-icon {
+      width: 56px; height: 56px; border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      transition: transform 0.35s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+    }
+    .service-card:hover .service-icon { transform: scale(1.1) rotate(-4deg); box-shadow: 0 8px 28px rgba(37,99,235,0.4); }
+    .service-icon i { color: var(--white); font-size: 1.3rem; }
+    .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .service-card p { color: var(--grey-text); font-size: 0.92rem; line-height: 1.68; margin-bottom: 22px; }
+    .service-link { font-size: 0.88rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.22s; }
+    .service-card:hover .service-link { gap: 12px; }
+
+    /* ============================================
+       6. WHY CHOOSE US
+    ============================================ */
+    #why-us { padding: var(--section-pad) 0; background: var(--section-blue); position: relative; overflow: hidden; }
+    #why-us::before {
+      content: ''; position: absolute; right: -200px; top: -200px; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 65%);
+    }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; position: relative; }
+    .why-left .section-sub { margin-bottom: 32px; }
+    .years-stat { display: inline-flex; align-items: baseline; gap: 6px; margin-bottom: 36px; }
+    .years-number {
+      font-family: var(--font-heading); font-size: 6rem; font-weight: 900; line-height: 1;
+      color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .years-label { font-size: 0.95rem; font-weight: 700; color: var(--navy-soft); max-width: 80px; line-height: 1.3; }
+    .why-left a { margin-top: 4px; }
+
+    .benefit-cards { display: flex; flex-direction: column; gap: 14px; }
+    .benefit-card {
+      background: var(--white); border-radius: var(--radius-md);
+      padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start;
+      border: 1.5px solid var(--grey-mid);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.35s cubic-bezier(.16,1,.3,1);
+      position: relative; overflow: hidden;
+    }
+    .benefit-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--cyan));
+      transform: scaleY(0); transform-origin: top; transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+    }
+    .benefit-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 8px 32px rgba(37,99,235,0.1); transform: translateX(6px); }
+    .benefit-card:hover::before { transform: scaleY(1); }
+
+    .benefit-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan-light));
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
+    }
+    .benefit-card:hover .benefit-icon { background: linear-gradient(135deg, var(--accent), var(--cyan)); }
+    .benefit-icon i { color: var(--accent); font-size: 1rem; transition: color 0.3s; }
+    .benefit-card:hover .benefit-icon i { color: white; }
+    .benefit-card h4 { font-size: 0.98rem; margin-bottom: 3px; }
+    .benefit-card p { font-size: 0.86rem; color: var(--grey-text); }
+
+    /* ============================================
+       7. EMERGENCY CTA STRIP
+    ============================================ */
+    #emergency { background: var(--navy); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+    #emergency::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.18) 0%, transparent 65%);
+    }
+    #emergency .container { position: relative; }
+    #emergency h2 { color: var(--white); font-size: clamp(1.7rem, 3.2vw, 2.6rem); margin-bottom: 10px; }
+    #emergency p { color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+    .emergency-phone {
+      font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900;
+      color: transparent; background: linear-gradient(90deg, #fff 0%, #93c5fd 100%);
+      -webkit-background-clip: text; background-clip: text;
+      display: block; margin-bottom: 32px; letter-spacing: -0.02em;
+      animation: pulse-phone 2.8s ease-in-out infinite;
+    }
+    @keyframes pulse-phone {
+      0%,100% { filter: drop-shadow(0 0 0px rgba(37,99,235,0)); }
+      50% { filter: drop-shadow(0 0 32px rgba(147,197,253,0.5)); }
+    }
+    .emergency-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ============================================
+       8. ABOUT SECTION
+    ============================================ */
+    #about { padding: var(--section-pad) 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap {
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: 0 24px 72px rgba(0,0,0,0.14);
+      aspect-ratio: 4/5; position: relative;
+      background: var(--grey-light);
+    }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+    .about-img-placeholder i { font-size: 3.5rem; color: var(--grey-mid); }
+    /* Decorative accent blob behind image */
+    .about-img-outer { position: relative; }
+    .about-img-outer::before {
+      content: ''; position: absolute; bottom: -24px; right: -24px; width: 60%; height: 60%;
+      border-radius: var(--radius-xl); z-index: -1;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(6,182,212,0.12));
+    }
+
+    .about-text p { color: var(--grey-text); line-height: 1.78; margin-bottom: 18px; }
+    .about-area { font-size: 0.9rem; font-weight: 600; color: var(--accent); margin: 4px 0 32px; display: flex; align-items: center; gap: 8px; }
+    .about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 36px; }
+    .about-stat {
+      text-align: center; padding: 22px 16px;
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan-light));
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(37,99,235,0.12);
+      transition: transform 0.3s cubic-bezier(.16,1,.3,1), box-shadow 0.3s;
+    }
+    .about-stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-blue); }
+    .about-stat .number { font-family: var(--font-heading); font-size: 2.1rem; font-weight: 900; color: var(--accent); }
+    .about-stat .label { font-size: 0.75rem; color: var(--grey-text); margin-top: 4px; font-weight: 500; }
+
+    /* ============================================
+       9. FAQ SECTION
+    ============================================ */
+    #faq { padding: var(--section-pad) 0; background: var(--off-white); }
+    .faq-wrap { max-width: 760px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 52px; }
+    .faq-header .section-label { justify-content: center; }
+    .faq-header .section-label::before { display: none; }
+    .faq-header .section-label::after { content: ''; width: 18px; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--accent)); border-radius: 2px; }
+
+    .faq-item { background: var(--white); border: 1.5px solid var(--grey-mid); border-radius: var(--radius-md); margin-bottom: 14px; overflow: hidden; transition: border-color 0.25s, box-shadow 0.25s; }
+    .faq-item:has(input:checked) { border-color: rgba(37,99,235,0.3); box-shadow: 0 4px 20px rgba(37,99,235,0.08); }
+    .faq-item input[type="checkbox"] { display: none; }
+    .faq-label { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; cursor: pointer; font-family: var(--font-heading); font-size: 0.98rem; font-weight: 600; color: var(--navy); user-select: none; gap: 16px; }
+    .faq-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.3s, transform 0.3s; }
+    .faq-icon i { color: var(--accent); font-size: 0.7rem; transition: transform 0.35s cubic-bezier(.16,1,.3,1), color 0.3s; }
+    .faq-item input:checked ~ .faq-label .faq-icon { background: linear-gradient(135deg, var(--accent), var(--cyan)); }
+    .faq-item input:checked ~ .faq-label .faq-icon i { color: white; transform: rotate(180deg); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(.16,1,.3,1), padding 0.3s; padding: 0 28px; color: var(--grey-text); font-size: 0.93rem; line-height: 1.75; }
+    .faq-item input:checked ~ .faq-body { max-height: 320px; padding: 0 28px 24px; }
+
+    /* ============================================
+       10. TESTIMONIALS
+    ============================================ */
+    #testimonials { padding: var(--section-pad) 0; background: var(--white); }
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .testimonial-card {
+      background: var(--white); border: 1.5px solid var(--grey-mid);
+      border-radius: var(--radius-lg); padding: 32px;
+      transition: border-color 0.3s, box-shadow 0.35s, transform 0.35s cubic-bezier(.16,1,.3,1);
+      position: relative; overflow: hidden;
+    }
+    .testimonial-card::after {
+      content: '\201C'; position: absolute; top: 16px; right: 20px;
+      font-size: 5rem; color: rgba(37,99,235,0.06);
+      font-family: var(--font-heading); font-weight: 900; line-height: 1;
+    }
+    .testimonial-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 16px 48px rgba(37,99,235,0.1); transform: translateY(-6px); }
+    .testi-stars { margin-bottom: 16px; }
+    .testi-stars i { color: var(--amber); font-size: 0.9rem; }
+    .testi-quote { font-size: 0.93rem; color: var(--body-text); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; justify-content: space-between; }
+    .testi-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
+    .testi-location { font-size: 0.78rem; color: var(--grey-text); margin-top: 2px; }
+    .testi-badge { display: flex; align-items: center; gap: 4px; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; }
+    .badge-google { background: #fce8e6; color: #d93025; }
+    .badge-facebook { background: #e7f0fd; color: #1877f2; }
+
+    /* ============================================
+       11. SOCIAL MEDIA SECTION
+    ============================================ */
+    #social { padding: var(--section-pad) 0; background: var(--section-blue); }
+    .social-header { text-align: center; margin-bottom: 52px; }
+    .social-platforms { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 44px; }
+    .platform-card {
+      border-radius: var(--radius-lg); padding: 32px 24px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+      transition: transform 0.3s cubic-bezier(.16,1,.3,1), box-shadow 0.3s;
+      color: white; position: relative; overflow: hidden;
+    }
+    .platform-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+    .platform-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .platform-card.facebook { background: linear-gradient(135deg, #1877f2, #0d5ccc); }
+    .platform-card.instagram { background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%); }
+    .platform-card.tiktok { background: linear-gradient(135deg, #111 0%, #2a2a2a 100%); }
+    .platform-card i { font-size: 2.4rem; }
+    .platform-card .plat-name { font-weight: 800; font-size: 1rem; }
+    .platform-card .plat-followers { font-size: 0.83rem; opacity: 0.75; }
+    .platform-card .btn { margin-top: 6px; background: rgba(255,255,255,0.18); color: white; border: 1px solid rgba(255,255,255,0.35); font-size: 0.82rem; padding: 8px 20px; }
+    .platform-card .btn:hover { background: rgba(255,255,255,0.3); }
+
+    .social-posts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .social-post-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--grey-mid); transition: box-shadow 0.25s, transform 0.3s cubic-bezier(.16,1,.3,1); }
+    .social-post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .post-img { width: 100%; aspect-ratio: 1; background: var(--grey-light); display: flex; align-items: center; justify-content: center; }
+    .post-img i { font-size: 2.5rem; color: var(--grey-mid); }
+    .post-body { padding: 16px; }
+    .post-platform { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; margin-bottom: 8px; }
+    .post-caption { font-size: 0.84rem; color: var(--grey-text); line-height: 1.55; margin-bottom: 12px; }
+    .post-link { font-size: 0.8rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; }
+    .social-empty { text-align: center; padding: 48px; color: var(--grey-text); grid-column: 1/-1; }
+
+    /* ============================================
+       12. CONTACT SECTION
+    ============================================ */
+    #contact { padding: var(--section-pad) 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+    .contact-info h2 { margin-bottom: 14px; }
+    .contact-info > p { color: var(--grey-text); margin-bottom: 36px; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+    .contact-detail-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan-light));
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(37,99,235,0.12);
+    }
+    .contact-detail-icon i { color: var(--accent); }
+    .contact-detail-text .label { font-size: 0.78rem; color: var(--grey-text); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .contact-detail-text .value { font-weight: 600; color: var(--navy); font-size: 0.93rem; }
+
+    .quote-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 13px 16px; border: 1.5px solid var(--grey-mid); border-radius: var(--radius-sm);
+      font-family: var(--font-body); font-size: 0.9rem; color: var(--body-text); background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s; width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      background: linear-gradient(135deg, var(--accent), #1d4ed8); color: white;
+      border: none; padding: 17px; font-size: 1rem; font-weight: 600;
+      font-family: var(--font-body); border-radius: 100px; cursor: pointer;
+      transition: all 0.25s cubic-bezier(.16,1,.3,1);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,99,235,0.45); }
+    #form-success { display: none; background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: var(--radius-md); padding: 24px; color: #166534; font-weight: 600; text-align: center; }
+    #form-success.show { display: block; animation: scale-in 0.4s cubic-bezier(.16,1,.3,1); }
+    @keyframes scale-in { from { opacity:0; transform: scale(0.94); } to { opacity:1; transform: scale(1); } }
+
+    /* ============================================
+       13. CLAIM SECTION
+    ============================================ */
+    #claim { padding: 88px 0; background: linear-gradient(135deg, #064e3b 0%, #065f46 100%); text-align: center; position: relative; overflow: hidden; }
+    #claim::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 60%); }
+    #claim .container { position: relative; }
+    #claim .section-label { color: rgba(255,255,255,0.6); justify-content: center; }
+    #claim .section-label::before, #claim .section-label::after { background: rgba(255,255,255,0.3); }
+    #claim h2 { color: var(--white); font-size: clamp(1.9rem, 3vw, 2.7rem); margin-bottom: 14px; }
+    #claim p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 36px; }
+
+    /* ============================================
+       14. FOOTER
+    ============================================ */
+    #footer { background: var(--navy); padding: 72px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1.2fr; gap: 64px; margin-bottom: 56px; }
+    .footer-brand .logo { color: white; margin-bottom: 16px; }
+    .footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.87rem; line-height: 1.72; margin-bottom: 24px; }
+    .social-icons { display: flex; gap: 10px; }
+    .social-icon { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.88rem; transition: background 0.2s, color 0.2s, transform 0.2s; }
+    .social-icon:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+
+    .footer-col h4 { color: var(--white); font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.45); font-size: 0.87rem; transition: color 0.2s, padding-left 0.2s; }
+    .footer-links a:hover { color: white; padding-left: 4px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .footer-contact-item i { color: var(--cyan); margin-top: 2px; font-size: 0.82rem; flex-shrink: 0; }
+    .footer-contact-item span { color: rgba(255,255,255,0.45); font-size: 0.84rem; line-height: 1.55; }
+
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+
+    /* ============================================
+       FLOATING ELEMENTS
+    ============================================ */
+    .float-btn { position: fixed; bottom: 28px; width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; cursor: pointer; z-index: 800; transition: transform 0.25s cubic-bezier(.16,1,.3,1), box-shadow 0.25s; }
+    .float-wa { right: 28px; background: var(--green); box-shadow: 0 6px 24px rgba(37,211,102,0.4); animation: bounce-wa 3.5s ease-in-out infinite; }
+    @keyframes bounce-wa { 0%,75%,100% { transform: translateY(0); } 85% { transform: translateY(-10px); } 92% { transform: translateY(-5px); } }
+    .float-wa:hover { animation: none; transform: scale(1.1); box-shadow: 0 10px 36px rgba(37,211,102,0.5); }
+    .float-call { left: 28px; background: var(--navy-soft); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
+    .float-call:hover { transform: scale(1.1); }
+    .float-tooltip { position: absolute; background: var(--navy); color: white; padding: 6px 13px; border-radius: 8px; font-size: 0.76rem; font-weight: 600; white-space: nowrap; opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; }
+    .float-wa .float-tooltip { right: 70px; transform: translateX(8px); }
+    .float-wa:hover .float-tooltip { opacity: 1; transform: translateX(0); }
+    .float-call .float-tooltip { left: 70px; transform: translateX(-8px); }
+    .float-call:hover .float-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .why-grid, .about-grid, .contact-grid { gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-pad: 64px; }
+      .main-nav, .header-ctas .btn:not(:last-child) { display: none; }
+      .hamburger { display: flex; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: 56px 24px 40px; }
+      .hero-image-wrap { min-height: 260px; order: -1; }
+      .hero-image-placeholder { min-height: 260px; }
+      .hero-badge-float, .hero-badge-float-2 { display: none; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .services-grid, .why-grid, .about-grid, .contact-grid, .testimonials-grid, .social-platforms, .social-posts-grid, .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .about-img-wrap { aspect-ratio: 16/9; }
+      .about-stats { grid-template-columns: repeat(3,1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .float-call { display: none; }
+      .trust-marquee { animation: marquee-scroll 18s linear infinite; }
+    }
+
+    @media (min-width: 769px) {
+      .float-call { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="min-h-screen">
-    <!-- 1. Announcement Bar -->
-    <div class="hidden md:block bg-navy text-white py-2 border-b border-white/10">
-      <div class="container-custom flex justify-center items-center gap-8 text-xs font-medium tracking-wider uppercase">
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Gas Safe Registered
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          Trusted Local Service
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          24/7 Emergency Response
-        </span>
+
+<!-- ============================================
+     1. ANNOUNCEMENT BAR
+============================================ -->
+<div id="announcement-bar">
+  <p>👋 Hi Seaside plumbing and heating ltd, we built this page free for you — <a href="#claim">claim it below</a></p>
+  <button class="close-bar" onclick="this.closest('#announcement-bar').style.display='none'" aria-label="Close">✕</button>
+</div>
+
+<!-- ============================================
+     2. STICKY HEADER
+============================================ -->
+<header id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span>
+        Seaside plumbing and heating ltd
+      </a>
+      <nav class="main-nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="tel:+44 125 328 3900" class="btn btn-navy"><i class="fa-solid fa-phone"></i> +44 125 328 3900</a>
+        <a href="https://wa.me/441253283900" class="btn btn-green" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
     </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+44 125 328 3900" class="btn btn-navy"><i class="fa-solid fa-phone"></i> Call +44 125 328 3900</a>
+    <a href="https://wa.me/441253283900" class="btn btn-green" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+  </nav>
+</header>
 
-    <!-- 2. Sticky Nav -->
-    <nav id="main-nav" class="sticky top-0 z-50 bg-white py-5 transition-all duration-300">
-      <div class="container-custom flex justify-between items-center">
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center">
-            <svg class="icon w-6 h-6 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <span class="font-syne font-extrabold text-2xl text-navy tracking-tight">Seaside plumbing and heating ltd<span class="text-amber">.</span></span>
-        </div>
-        <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-navy">
-          <a href="#services" class="hover:text-amber transition-colors">Services</a>
-          <a href="#about" class="hover:text-amber transition-colors">About</a>
-          <a href="#reviews" class="hover:text-amber transition-colors">Reviews</a>
-          <a href="#contact" class="hover:text-amber transition-colors">Contact</a>
-        </div>
-        <a href="tel:+44 1253 283900" class="btn btn-primary btn-sm flex items-center gap-2">
-          <svg class="icon w-4 h-4 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +44 1253 283900
-        </a>
-      </div>
-    </nav>
-
-    <!-- 3. Hero Section -->
-    <section class="relative min-h-[calc(100vh-80px)] bg-navy flex items-center overflow-hidden">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-amber/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[100px]"></div>
-        <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03]" viewBox="0 0 100 100" style="width:100%;height:100%;">
-          <pattern id="hexagons" width="10" height="17.32" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
-            <path d="M5 0 L10 2.88 L10 8.66 L5 11.54 L0 8.66 L0 2.88 Z" fill="none" stroke="white" stroke-width="0.1"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#hexagons)"/>
-        </svg>
-      </div>
-      <div class="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-20">
-        <div class="text-white">
-          <div id="hero-badge" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-amber text-xs font-bold uppercase tracking-widest mb-8" style="opacity:0; transform: translateX(-20px);">
-            <span class="w-2 h-2 rounded-full bg-amber animate-pulse"></span>
-            Blackpool's #1 Rated Plumbers
-          </div>
-          <h1 id="hero-headline" class="heading-fluid mb-6 text-white">[headline]</h1>
-          <p id="hero-tagline" class="text-xl text-white/70 mb-10 max-w-lg" style="opacity:0;">[tagline]</p>
-          <div id="hero-buttons" class="flex flex-wrap gap-4" style="opacity:0; transform: translateY(20px);">
-            <a href="#contact" class="btn btn-primary">Book a Repair</a>
-            <a href="#services" class="btn btn-secondary">View Our Services</a>
-          </div>
-        </div>
-        <div id="hero-card-wrap" class="relative perspective-1000 hero-card-float" style="opacity:0; transform: scale(0.9);">
-          <div class="absolute -inset-4 bg-amber/20 blur-2xl rounded-3xl"></div>
-          <div id="hero-card" class="relative backdrop-blur-xl p-8 rounded-3xl transition-all duration-500">
-            <h3 class="hero-card-title font-syne text-2xl mb-6">Why Blackpool Trusts Us</h3>
-            <ul class="hero-card-list space-y-5 mb-8">
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                No Call-Out Fees Ever
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Fixed Upfront Pricing
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                12-Month Guarantee
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Local Blackpool Engineers
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Emergency 24/7 Support
-              </li>
-            </ul>
-            <div class="pt-8 border-t border-white/10 text-center">
-              <p class="text-amber/60 text-sm uppercase tracking-widest mb-2">Emergency Hotline</p>
-              <p class="text-4xl font-syne font-extrabold text-amber">+44 1253 283900</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Trust Strip -->
-    <section class="bg-light-grey py-10 border-y border-black/5">
-      <div class="container-custom">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="0">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Gas Safe</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="100">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Accredited</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="200">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v12M15 5.88 14 10v12M3 18h4l2.5-6 2.5 6h4"/><path d="M12 2v4"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">5-Star Rated</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="300">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Fast Response</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="400">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Guaranteed</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Services Section -->
-    <section id="services" class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">Our Expert Services</h2>
-            <p class="text-muted max-w-2xl mx-auto">Comprehensive plumbing and heating solutions tailored for Blackpool homes and businesses.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="0"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔧</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="50"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔥</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="100"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🚿</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="150"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🌡️</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="200"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">💧</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="250"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🏠</div><p class="text-muted text-sm leading-relaxed"></p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. About Section -->
-    <section id="about" class="section-padding bg-navy text-white overflow-hidden">
-      <div class="container-custom grid lg:grid-cols-2 gap-20 items-center">
-        <div>
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-8"></h2>
-            <p class="text-white/70 mb-10 text-lg">[about_text]</p>
-            <div class="grid grid-cols-2 gap-6">
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">15+</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Years Experience</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">500+</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Happy Customers</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">24h</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Emergency Support</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">100%</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Satisfaction</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="fade-up" data-delay="200">
-            <div class="aspect-square rounded-3xl border-2 border-dashed border-amber/30 p-4">
-              <div class="about-photo-placeholder w-full h-full bg-white/5 rounded-2xl flex flex-col items-center justify-center overflow-hidden relative border border-white/10">
-                <svg class="w-16 h-16 text-white/30 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                <p class="text-white/40 text-sm font-medium uppercase tracking-widest">Your team photo</p>
-                <p class="text-white/30 text-xs mt-1">Replace with image URL or leave as placeholder</p>
-                <div class="absolute bottom-8 left-8 right-8 text-left">
-                  <p class="font-syne text-xl text-white">The Seaside plumbing and heating ltd Team</p>
-                  <p class="text-amber text-sm">On-site in Blackpool, 2026</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Why Choose Us -->
-    <section class="section-padding bg-light-grey">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">Why Choose Seaside plumbing and heating ltd?</h2>
-            <p class="text-muted">The little things that make a big difference.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="0">
-            <div class="text-4xl mb-4">📍</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Local Experts</h3>
-            <p class="text-muted text-sm">Based right here in Blackpool, we know the area and its plumbing systems inside out.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="50">
-            <div class="text-4xl mb-4">💰</div>
-            <h3 class="text-lg font-syne text-navy mb-3">No Hidden Costs</h3>
-            <p class="text-muted text-sm">We provide clear, fixed quotes before any work begins. No nasty surprises on your bill.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="100">
-            <div class="text-4xl mb-4">🛡️</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Fully Insured</h3>
-            <p class="text-muted text-sm">Complete peace of mind with comprehensive public liability insurance for every job.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="150">
-            <div class="text-4xl mb-4">✨</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Clean & Tidy</h3>
-            <p class="text-muted text-sm">We treat your home with respect, using floor protectors and cleaning up thoroughly.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="200">
-            <div class="text-4xl mb-4">🤝</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Trusted Advice</h3>
-            <p class="text-muted text-sm">We'll never recommend work you don't need. Honest, professional advice every time.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="250">
-            <div class="text-4xl mb-4">⚡</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Rapid Response</h3>
-            <p class="text-muted text-sm">Emergency? We aim to be at your door within 60 minutes for all Blackpool call-outs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Reviews Section -->
-    <section id="reviews" class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">What Our Clients Say</h2>
-            <div class="flex justify-center gap-1 text-amber mb-4">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="text-muted">Rated 4.9/5 based on 500+ local reviews.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="0"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="100"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="200"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. CTA Banner -->
-    <section id="contact" class="bg-amber py-20">
-      <div class="container-custom text-center">
-        <div class="fade-up" data-delay="0">
-          <h2 class="text-4xl md:text-6xl text-navy mb-10 max-w-3xl mx-auto">[cta_text]</h2>
-          <p class="text-navy/80 mb-6"></p>
-          <div class="flex flex-wrap justify-center gap-4">
-            <a href="tel:+44 1253 283900" class="btn btn-navy flex items-center gap-2">
-              <svg class="icon w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call +44 1253 283900
-            </a>
-            <a href="mailto:" class="btn btn-outline border-navy text-navy hover:bg-navy hover:text-white">Get a Free Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. Footer -->
-    <footer class="bg-navy text-white pt-20 pb-10">
-      <div class="container-custom">
-        <div class="grid md:grid-cols-2 gap-16 mb-16">
-          <div>
-            <div class="flex items-center gap-2 mb-8">
-              <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-                <svg class="icon w-6 h-6 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <span class="font-syne font-extrabold text-2xl tracking-tight">Seaside plumbing and heating ltd<span class="text-amber">.</span></span>
-            </div>
-            <p class="text-white/50 max-w-sm mb-8">Your local Blackpool plumbing experts. Providing high-quality repairs and installations for over 15 years.</p>
-            <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber hover:text-navy transition-all cursor-pointer" aria-label="Facebook"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber hover:text-navy transition-all cursor-pointer" aria-label="Instagram"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-8">
-            <div>
-              <h4 class="font-syne text-lg mb-6">Quick Links</h4>
-              <ul class="space-y-4 text-white/50 text-sm">
-                <li><a href="#" class="hover:text-amber transition-colors">Home</a></li>
-                <li><a href="#services" class="hover:text-amber transition-colors">Services</a></li>
-                <li><a href="#about" class="hover:text-amber transition-colors">About Us</a></li>
-                <li><a href="#reviews" class="hover:text-amber transition-colors">Reviews</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-syne text-lg mb-6">Contact Us</h4>
-              <ul class="space-y-4 text-white/50 text-sm">
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Blackpool</li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +44 1253 283900</li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> </li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon-Sun: 24/7</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30 font-medium uppercase tracking-widest">
-          <p>© 2026 Seaside plumbing and heating ltd Blackpool. All Rights Reserved.</p>
-          <div class="flex gap-8">
-            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- 11. Floating Emergency Button -->
-    <div class="fixed bottom-8 right-8 z-[100] group" style="z-index: 100;">
-      <div id="emergency-tooltip" class="absolute right-full mr-4 top-1/2 bg-navy text-white px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 transition-all duration-300 pointer-events-none" style="transform: translate(1rem, -50%); top: 50%;">Emergency Call</div>
-      <a href="tel:+44 1253 283900" class="w-16 h-16 bg-amber rounded-full flex items-center justify-center text-white shadow-2xl animate-pulse-glow hover:scale-110 transition-transform duration-300" style="display: inline-flex; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
-        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </a>
+<!-- ============================================
+     3. HERO SECTION
+============================================ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <span class="live-dot"></span>
+      Available in Blackpool today
+    </div>
+    <h1 class="hero-title reveal d1">
+      Blackpool's Most<br />
+      Trusted <span class="accent-word">Plumbing</span><br />
+      Experts
+    </h1>
+    <p class="hero-tagline reveal d2">Your Trusted Local Plumbing Experts</p>
+    <div class="hero-ctas reveal d3">
+      <a href="tel:+44 125 328 3900" class="btn btn-primary btn-lg"><i class="fa-solid fa-phone"></i> Call Now — +44 125 328 3900</a>
+      <a href="https://wa.me/441253283900" class="btn btn-green btn-lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+    <div class="trust-badges reveal d4">
+      <span class="trust-badge"><span class="check"><i class="fa-solid fa-check"></i></span> Fully Insured</span>
+      <span class="trust-badge"><span class="check"><i class="fa-solid fa-check"></i></span> Gas Safe Registered</span>
+      <span class="trust-badge"><span class="check"><i class="fa-solid fa-check"></i></span> Same Day Service</span>
+      <span class="trust-badge"><span class="check"><i class="fa-solid fa-check"></i></span> Free Quotes</span>
+    </div>
+    <div class="star-rating reveal d5">
+      <span class="stars">
+        <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i>
+      </span>
+      <span class="rating-score">4.9</span>
+      <span class="rating-text">— Rated 5 stars by local homeowners</span>
     </div>
   </div>
 
-  <script>
+  <div class="hero-image-wrap">
+    <img src="" alt="Seaside plumbing and heating ltd"
+      onerror="this.style.display='none';document.getElementById('hero-placeholder').style.display='flex';" />
+    <div id="hero-placeholder" class="hero-image-placeholder" style="display:none;">
+      <i class="fa-solid fa-wrench"></i>
+      <p></p>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Floating trust badge on image -->
+    <div class="hero-badge-float">
+      <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="badge-text">
+        <div class="top">10+ Years</div>
+        <div class="bot">Trusted in Blackpool</div>
+      </div>
+    </div>
+    <div class="hero-badge-float-2">
+      <i class="fa-solid fa-star" style="color:var(--amber);font-size:1.1rem;"></i>
+      <div class="badge-text">
+        <div class="top">4.9 Stars</div>
+        <div class="bot">Google Reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     4. TRUST BAR (animated marquee)
+============================================ -->
+<div id="trust-bar">
+  <div class="trust-marquee-wrap">
+    <div class="trust-marquee" id="trust-marquee">
+      <!-- Duplicated for seamless loop -->
+      <div class="trust-item"><span class="ti-icon">🏆</span> 10 Years Experience</div>
+      <div class="trust-item"><span class="ti-icon">⚡</span> Emergency Callouts</div>
+      <div class="trust-item"><span class="ti-icon">🔒</span> Fully Insured</div>
+      <div class="trust-item"><span class="ti-icon">💬</span> Free Quotes</div>
+      <div class="trust-item"><span class="ti-icon">⭐</span> 5-Star Rated</div>
+      <div class="trust-item"><span class="ti-icon">🚿</span> Gas Safe Registered</div>
+      <div class="trust-item"><span class="ti-icon">📍</span> Local to Blackpool</div>
+      <div class="trust-item"><span class="ti-icon">🏆</span> 10 Years Experience</div>
+      <div class="trust-item"><span class="ti-icon">⚡</span> Emergency Callouts</div>
+      <div class="trust-item"><span class="ti-icon">🔒</span> Fully Insured</div>
+      <div class="trust-item"><span class="ti-icon">💬</span> Free Quotes</div>
+      <div class="trust-item"><span class="ti-icon">⭐</span> 5-Star Rated</div>
+      <div class="trust-item"><span class="ti-icon">🚿</span> Gas Safe Registered</div>
+      <div class="trust-item"><span class="ti-icon">📍</span> Local to Blackpool</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     5. SERVICES SECTION
+============================================ -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label reveal-clip">What We Do</span>
+      <h2 class="section-title reveal">Our Services in Blackpool</h2>
+      <p class="section-sub reveal d1">From emergency repairs to full installations — we've got Blackpool covered.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal d1">
+        <div class="service-icon"><i class="fa-solid fa-faucet"></i></div>
+        <h3>Service 1</h3>
+        <p>Professional service.</p>
+        <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+        <h3>Service 2</h3>
+        <p>Quality you can trust.</p>
+        <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="service-icon"><i class="fa-solid fa-shower"></i></div>
+        <h3>Service 3</h3>
+        <p>Expert care.</p>
+        <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal d4">
+        <div class="service-icon"><i class="fa-solid fa-toolbox"></i></div>
+        <h3>Service 4</h3>
+        <p>Fast and reliable.</p>
+        <a href="#contact" class="service-link">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     6. WHY CHOOSE US
+============================================ -->
+<section id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left reveal-left">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Blackpool's Plumbers You Can Actually Trust</h2>
+        <p class="section-sub">Welcome to Seaside plumbing and heating ltd.</p>
+        <br />
+        <div class="years-stat">
+          <span class="years-number" data-count="10">10</span>
+          <span class="years-label">Years serving<br />Blackpool</span>
+        </div>
+        <a href="#contact" class="btn btn-primary">Get Your Free Quote</a>
+      </div>
+      <div class="benefit-cards">
+        <div class="benefit-card reveal-right d1">
+          <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div><h4>Trusted local business</h4><p>Full public liability insurance so you're protected every time we work in your home.</p></div>
+        </div>
+        <div class="benefit-card reveal-right d2">
+          <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div><h4>Quality guaranteed</h4><p>Burst pipe at midnight? Boiler down in January? We pick up 24/7 for emergencies.</p></div>
+        </div>
+        <div class="benefit-card reveal-right d3">
+          <div class="benefit-icon"><i class="fa-solid fa-star"></i></div>
+          <div><h4>Friendly service</h4><p>Hundreds of 5-star reviews from real Blackpool homeowners — results you can verify.</p></div>
+        </div>
+        <div class="benefit-card reveal-right d4">
+          <div class="benefit-icon"><i class="fa-solid fa-tag"></i></div>
+          <div><h4>Great value</h4><p>Upfront pricing with no hidden call-out fees or surprises. Your quote is your price.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     7. EMERGENCY CTA STRIP
+============================================ -->
+<section id="emergency">
+  <div class="container">
+    <h2 class="reveal">Plumbing Emergency? We're Available Now</h2>
+    <p class="reveal d1">Don't let it get worse — call us now for an immediate response in Blackpool</p>
+    <a href="tel:+44 125 328 3900" class="emergency-phone reveal d2">+44 125 328 3900</a>
+    <div class="emergency-btns reveal d3">
+      <a href="tel:+44 125 328 3900" class="btn btn-primary btn-lg"><i class="fa-solid fa-phone"></i> Call Now</a>
+      <a href="https://wa.me/441253283900" class="btn btn-green btn-lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     8. ABOUT SECTION
+============================================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-outer reveal-left">
+        <div class="about-img-wrap">
+          <img src="" alt="About Seaside plumbing and heating ltd"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="about-img-placeholder" style="display:none;">
+            <i class="fa-solid fa-user-tie"></i>
+            <p style="color:var(--grey-text);font-size:0.82rem;">About image</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Local Plumbers Who Know Blackpool</h2>
+        <p>Welcome to Seaside plumbing and heating ltd.</p>
+        <p>We're not a faceless national company. We're your neighbours — 10 years deep in the local community, turning up on time, doing the job right, and leaving your home cleaner than we found it.</p>
+        <p class="about-area"><i class="fa-solid fa-location-dot"></i> Proudly serving Blackpool and surrounding areas</p>
+        <a href="#contact" class="btn btn-primary">Book a Call</a>
+        <div class="about-stats">
+          <div class="about-stat reveal-scale d1">
+            <div class="number">10+</div>
+            <div class="label">Years Experience</div>
+          </div>
+          <div class="about-stat reveal-scale d2">
+            <div class="number">500+</div>
+            <div class="label">Jobs Completed</div>
+          </div>
+          <div class="about-stat reveal-scale d3">
+            <div class="number">&lt;60m</div>
+            <div class="label">Response Time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     9. FAQ SECTION
+============================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-header">
+        <span class="section-label reveal-clip">FAQ</span>
+        <h2 class="section-title reveal">Common Questions</h2>
+        <p class="section-sub reveal d1" style="margin:0 auto;">Everything you need to know before booking.</p>
+      </div>
+      <div class="faq-item reveal d1">
+        <input type="checkbox" id="faq1" />
+        <label class="faq-label" for="faq1">How can I get in touch?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></label>
+        <div class="faq-body">Call or WhatsApp us using the buttons above.</div>
+      </div>
+      <div class="faq-item reveal d2">
+        <input type="checkbox" id="faq2" />
+        <label class="faq-label" for="faq2">Where do you serve?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></label>
+        <div class="faq-body">We serve Blackpool and the surrounding area.</div>
+      </div>
+      <div class="faq-item reveal d3">
+        <input type="checkbox" id="faq3" />
+        <label class="faq-label" for="faq3">Do you offer free quotes?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></label>
+        <div class="faq-body">Yes, contact us for a free quote.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     10. TESTIMONIALS
+============================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label reveal-clip">Reviews</span>
+      <h2 class="section-title reveal">What Blackpool Homeowners Say</h2>
+      <p class="section-sub reveal d1" style="margin:0 auto;">Don't take our word for it.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal d1">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-quote">Absolutely brilliant service. Called at 8am with a burst pipe and they were here within the hour. Fixed it quickly, explained everything clearly, and the price was exactly as quoted.</p>
+        <div class="testi-author">
+          <div><div class="testi-name">Sarah T.</div><div class="testi-location">Blackpool</div></div>
+          <span class="testi-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal d2">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-quote">Got three quotes and Seaside plumbing and heating ltd were competitive AND the most professional. New boiler installed in one day, everything left spotless. Already recommended to my sister.</p>
+        <div class="testi-author">
+          <div><div class="testi-name">Mark W.</div><div class="testi-location">Blackpool</div></div>
+          <span class="testi-badge badge-google"><i class="fa-brands fa-google"></i> Google</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal d3">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-quote">Used for a full bathroom renovation. Brilliant craftsmanship, kept us updated throughout, and finished ahead of schedule. The bathroom looks incredible.</p>
+        <div class="testi-author">
+          <div><div class="testi-name">Laura & Pete H.</div><div class="testi-location">Blackpool</div></div>
+          <span class="testi-badge badge-facebook"><i class="fa-brands fa-facebook"></i> Facebook</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     11. SOCIAL MEDIA SECTION
+============================================ -->
+<section id="social">
+  <div class="container">
+    <div class="social-header">
+      <span class="section-label reveal-clip">Social Media</span>
+      <h2 class="section-title reveal">Follow Seaside plumbing and heating ltd on Social</h2>
+      <p class="section-sub reveal d1" style="margin:0 auto;">Behind the scenes, tips, and updates from the team.</p>
+    </div>
+    <div class="social-platforms">
+      <div class="platform-card facebook reveal d1">
+        <i class="fa-brands fa-facebook-f"></i>
+        <div class="plat-name">Facebook</div>
+        <div class="plat-followers">1.2k followers</div>
+        <a href="#" target="_blank" rel="noopener" class="btn">Follow Us</a>
+      </div>
+      <div class="platform-card instagram reveal d2">
+        <i class="fa-brands fa-instagram"></i>
+        <div class="plat-name">Instagram</div>
+        <div class="plat-followers">840 followers</div>
+        <a href="#" target="_blank" rel="noopener" class="btn">Follow Us</a>
+      </div>
+      <div class="platform-card tiktok reveal d3">
+        <i class="fa-brands fa-tiktok"></i>
+        <div class="plat-name">TikTok</div>
+        <div class="plat-followers">3.1k followers</div>
+        <a href="#" target="_blank" rel="noopener" class="btn">Follow Us</a>
+      </div>
+    </div>
+    <div class="social-posts-grid" id="social-posts-container"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     12. CONTACT + QUOTE FORM
+============================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Book a Free Quote</h2>
+        <p>Ready to get started? Fill in the form or give us a call — we'll get back to you fast.</p>
+        <br />
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="contact-detail-text"><div class="label">Phone</div><div class="value"><a href="tel:+44 125 328 3900">+44 125 328 3900</a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-detail-text"><div class="label">Email</div><div class="value"><a href="mailto:"></a></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-detail-text"><div class="label">Address</div><div class="value"></div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="contact-detail-text"><div class="label">Opening Hours</div><div class="value">Mon-Fri 8am-6pm, Sat 9am-4pm, 24/7 Emergency</div></div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <form class="quote-form" id="quote-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name *</label>
+              <input type="text" id="f-name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="f-phone">Phone Number *</label>
+              <input type="tel" id="f-phone" placeholder="07700 000000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email Address</label>
+            <input type="email" id="f-email" placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="f-service">Service Needed *</label>
+            <select id="f-service" required>
+              <option value="">Select a service…</option>
+              <option>Service 1</option>
+              <option>Service 2</option>
+              <option>Service 3</option>
+              <option>Service 4</option>
+              <option>Emergency Callout</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-message">Tell Us More</label>
+            <textarea id="f-message" placeholder="Describe the job or issue — the more detail, the better…"></textarea>
+          </div>
+          <button type="submit" class="form-submit"><i class="fa-solid fa-paper-plane"></i> Send My Enquiry</button>
+        </form>
+        <div id="form-success">
+          <i class="fa-solid fa-circle-check" style="color:#16a34a;font-size:1.5rem;margin-bottom:8px;display:block;"></i>
+          Thanks! We'll be in touch shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     13. CLAIM SECTION
+============================================ -->
+<section id="claim">
+  <div class="container reveal">
+    <span class="section-label">Free Offer</span>
+    <h2>Is This Your Business?</h2>
+    <p>Claim this free page and we'll put it live on your own domain — no monthly fees, no contracts.</p>
+    <a href="mailto:skip@skip.com?subject=Claim my page - Seaside plumbing and heating ltd" class="btn btn-white btn-lg">🚀 Claim This Page Free</a>
+  </div>
+</section>
+
+<!-- ============================================
+     14. FOOTER
+============================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="logo-icon"><i class="fa-solid fa-droplet"></i></span> Seaside plumbing and heating ltd</a>
+        <p>Your Trusted Local Plumbing Experts — trusted plumbers serving Blackpool for 10 years.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/441253283900" class="social-icon" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="#services">Our Services</a>
+          <a href="#about">About Us</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Get a Quote</a>
+          <a href="#claim">Claim This Page</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact & Hours</h4>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span><a href="tel:+44 125 328 3900" style="color:rgba(255,255,255,0.45);">+44 125 328 3900</a></span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span><a href="mailto:" style="color:rgba(255,255,255,0.45);"></a></span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span></span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon-Fri 8am-6pm, Sat 9am-4pm, 24/7 Emergency</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Seaside plumbing and heating ltd. All rights reserved.</p>
+      <p>Page created as a free preview by <strong style="color:rgba(255,255,255,0.4);">Your Brand</strong></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLOATING ELEMENTS
+============================================ -->
+<a href="https://wa.me/441253283900" class="float-btn float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="float-tooltip">WhatsApp Us</span>
+</a>
+<a href="tel:+44 125 328 3900" class="float-btn float-call" aria-label="Call">
+  <i class="fa-solid fa-phone"></i>
+  <span class="float-tooltip">Call Us</span>
+</a>
+
+<!-- ============================================
+     JAVASCRIPT
+============================================ -->
+<script>
+/* ============================================
+   SOCIAL POSTS — replace with live API later.
+   Each: { platform, platformLabel, platformColor, platformIcon, image, caption, link }
+   Set to [] to show fallback gracefully.
+============================================ */
+const socialPosts = [
+  {
+    platform: 'instagram', platformLabel: 'Instagram',
+    platformColor: '#dd2a7b', platformIcon: 'fa-brands fa-instagram',
+    image: '', caption: '🔧 Just finished this full bathroom refit in Blackpool — customer was over the moon! #plumber #Blackpool #bathroomrenovation',
+    link: '#'
+  },
+  {
+    platform: 'facebook', platformLabel: 'Facebook',
+    platformColor: '#1877f2', platformIcon: 'fa-brands fa-facebook-f',
+    image: '', caption: 'Another boiler installation done in Blackpool today ✅ If your boiler is over 12 years old it may be costing you more than you think — drop us a message.',
+    link: '#'
+  },
+  {
+    platform: 'tiktok', platformLabel: 'TikTok',
+    platformColor: '#010101', platformIcon: 'fa-brands fa-tiktok',
+    image: '', caption: 'The satisfying moment when a burst pipe is fixed 💧🔧 #plumber #plumbinglife #satisfying #emergency',
+    link: '#'
+  }
+];
+
+/* Render social posts */
 (function() {
-  'use strict';
-
-  var easeQuint = [0.16, 1, 0.3, 1];
-
-  // ----- Nav scroll -----
-  var nav = document.getElementById('main-nav');
-  if (nav) {
-    function onScroll() {
-      nav.classList.toggle('nav-scrolled', window.scrollY > 50);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  const c = document.getElementById('social-posts-container');
+  if (!c) return;
+  if (!socialPosts.length) {
+    c.innerHTML = '<div class="social-empty"><i class="fa-regular fa-image" style="font-size:2rem;color:var(--grey-mid);display:block;margin-bottom:12px;"></i><p>Add posts to the socialPosts array.</p></div>';
+    return;
   }
-
-  // ----- Hero headline: text reveal (word by word). Content exists in HTML as fallback; JS clears and rebuilds for animation. -----
-  var headlineEl = document.getElementById('hero-headline');
-  if (headlineEl) {
-    var headlineText = (headlineEl.textContent || headlineEl.innerText || '').trim();
-    if (headlineText) {
-      headlineEl.textContent = '';
-      var words = headlineText.split(/\s+/);
-      words.forEach(function(word, i) {
-        var wrap = document.createElement('span');
-        wrap.className = 'text-reveal-word';
-        wrap.style.transitionDelay = (i * 0.1) + 's';
-        var inner = document.createElement('span');
-        inner.textContent = word;
-        wrap.appendChild(inner);
-        headlineEl.appendChild(wrap);
-      });
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          headlineEl.querySelectorAll('.text-reveal-word').forEach(function(w, i) {
-            w.style.transitionDelay = (i * 0.1) + 's';
-            setTimeout(function() { w.classList.add('revealed'); }, 50 + i * 80);
-          });
-        });
-      });
-    }
-  }
-
-  // ----- Hero entrance animations -----
-  var heroBadge = document.getElementById('hero-badge');
-  var heroTagline = document.getElementById('hero-tagline');
-  var heroButtons = document.getElementById('hero-buttons');
-  var heroCardWrap = document.getElementById('hero-card-wrap');
-
-  function animate(el, opts, duration, delay, easing) {
-    if (!el) return;
-    el.style.transition = 'none';
-    if (opts.from) {
-      if (opts.from.opacity != null) el.style.opacity = opts.from.opacity;
-      if (opts.from.transform) el.style.transform = opts.from.transform;
-    }
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        el.style.transition = (duration || 0.6) + 'ms ' + (easing || 'ease-out') + (delay ? ' ' + delay + 'ms' : '') + ' ';
-        if (opts.to) {
-          if (opts.to.opacity != null) el.style.opacity = opts.to.opacity;
-          if (opts.to.transform) el.style.transform = opts.to.transform || 'none';
-        }
-      });
-    });
-  }
-
-  setTimeout(function() {
-    animate(heroBadge, { from: { opacity: 0, transform: 'translateX(-20px)' }, to: { opacity: 1, transform: 'translateX(0)' } }, 600, 0);
-  }, 0);
-  setTimeout(function() {
-    animate(heroTagline, { from: { opacity: 0 }, to: { opacity: 1 } }, 1000, 0);
-  }, 800);
-  setTimeout(function() {
-    animate(heroButtons, { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' } }, 600, 0);
-  }, 1000);
-  setTimeout(function() {
-    if (heroCardWrap) {
-      heroCardWrap.style.transition = 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s';
-      heroCardWrap.style.opacity = '1';
-      heroCardWrap.style.transform = 'scale(1)';
-    }
-  }, 400);
-
-  // ----- Hero card hover -----
-  var heroCard = document.getElementById('hero-card');
-  if (heroCard) {
-    heroCard.addEventListener('mouseenter', function() {
-      heroCard.style.transform = 'translateY(-10px) rotateX(2deg) rotateY(-2deg)';
-    });
-    heroCard.addEventListener('mouseleave', function() {
-      heroCard.style.transform = '';
-    });
-  }
-
-  // ----- Fade-up on scroll (Intersection Observer) -----
-  function observeFadeUp() {
-    var els = document.querySelectorAll('.fade-up');
-    if (!els.length) return;
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var delay = parseInt(el.getAttribute('data-delay') || 0, 10);
-        el.style.transitionDelay = delay + 'ms';
-        el.classList.add('is-visible');
-      });
-    }, { rootMargin: '-100px 0px', threshold: 0 });
-    els.forEach(function(el) { observer.observe(el); });
-  }
-  observeFadeUp();
-
-  // ----- Trust strip hover (scale + color) -----
-  document.querySelectorAll('.trust-item').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.opacity = '1';
-      this.style.transform = 'scale(1.1)';
-      this.style.color = '#f5a623';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.opacity = '';
-      this.style.transform = '';
-      this.style.color = '';
-    });
+  socialPosts.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'social-post-card reveal';
+    el.innerHTML = `
+      <div class="post-img">${p.image ? `<img src="${p.image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : `<i class="fa-regular fa-image"></i>`}</div>
+      <div class="post-body">
+        <div class="post-platform"><i class="${p.platformIcon}" style="color:${p.platformColor};"></i><span style="color:${p.platformColor};">${p.platformLabel}</span></div>
+        <p class="post-caption">${p.caption}</p>
+        <a href="${p.link}" target="_blank" rel="noopener" class="post-link">View Post <i class="fa-solid fa-arrow-right"></i></a>
+      </div>`;
+    c.appendChild(el);
   });
-
-  // ----- About stat hover -----
-  document.querySelectorAll('.about-stat').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.transform = 'scale(1.05)';
-      this.style.backgroundColor = 'rgba(255,255,255,0.1)';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.transform = '';
-      this.style.backgroundColor = '';
-    });
-  });
-
-  // ----- Why choose cards hover (y, scale, shadow) -----
-  document.querySelectorAll('.why-card').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-8px) scale(1.03)';
-      this.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.transform = '';
-      this.style.boxShadow = '';
-    });
-  });
-
-  // ----- Floating button: show tooltip on hover -----
-  var floatWrap = document.querySelector('.fixed.bottom-8.right-8');
-  var tooltip = document.getElementById('emergency-tooltip');
-  if (floatWrap && tooltip) {
-    floatWrap.addEventListener('mouseenter', function() {
-      tooltip.style.opacity = '1';
-      tooltip.style.transform = 'translate(-1rem, -50%)';
-    });
-    floatWrap.addEventListener('mouseleave', function() {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translate(1rem, -50%)';
-    });
-  }
 })();
-  </script>
+
+/* ============================================
+   HEADER SCROLL SHRINK
+============================================ */
+const header = document.getElementById('site-header');
+addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', scrollY > 40);
+}, { passive: true });
+
+/* ============================================
+   HAMBURGER MENU
+============================================ */
+const ham = document.getElementById('hamburger');
+const mobNav = document.getElementById('mobile-nav');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mobNav.classList.toggle('open');
+});
+mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('open'); mobNav.classList.remove('open');
+}));
+
+/* ============================================
+   SMOOTH SCROLL
+============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+/* ============================================
+   INTERSECTION OBSERVER — all reveal variants
+============================================ */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip').forEach(el => obs.observe(el));
+
+/* ============================================
+   STAT COUNT-UP ANIMATION
+============================================ */
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    if (isNaN(target)) return;
+    let start = 0;
+    const step = target / 40;
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = Math.round(start);
+      if (start >= target) clearInterval(timer);
+    }, 30);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+/* ============================================
+   CONTACT FORM HANDLER
+============================================ */
+const form = document.getElementById('quote-form');
+const success = document.getElementById('form-success');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const btn = form.querySelector('.form-submit');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+    btn.disabled = true;
+    setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); }, 1200);
+  });
+}
+</script>
 </body>
 </html>
