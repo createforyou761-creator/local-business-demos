@@ -1,873 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="[tagline]" />
-  <title>BLACKPOOL HEATING SUPPLIES – Blackpool Plumbing</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLACKPOOL HEATING SUPPLIES | Blackpool</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
   <style>
-    :root {
-      --font-syne: "Syne", sans-serif;
-      --font-dm-sans: "DM Sans", sans-serif;
-      --color-navy: #0d1b2a;
-      --color-amber: #f5a623;
-      --color-body: #1a2a3a;
-      --color-muted: #6b7f93;
-      --color-light-grey: #f4f6f9;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #1a1a1a; }
+    .section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: var(--font-dm-sans);
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--color-body);
-      background: #fff;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-syne);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .font-syne { font-family: var(--font-syne); }
-    .min-h-screen { min-height: 100vh; }
-    .selection\\:bg-amber\\/30 ::selection { background: rgba(245, 166, 35, 0.3); }
-    ::selection { background: rgba(245, 166, 35, 0.3); }
+    .top-banner { background: #facc15; color: #000; text-align: center; padding: 14px 20px; font-weight: 600; }
+    .top-banner a { color: #000; text-decoration: underline; }
 
-    .heading-fluid {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      line-height: 1.1;
-    }
-    .section-padding { padding-top: 60px; padding-bottom: 60px; }
-    @media (min-width: 768px) { .section-padding { padding-top: 80px; padding-bottom: 80px; } }
-    .container-custom { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
-    .perspective-1000 { perspective: 1000px; }
+    .header { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.08); z-index: 100; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .header-logo { font-size: 1.25rem; font-weight: 700; color: #1e40af; }
+    .header-phone { display: inline-flex; align-items: center; gap: 8px; background: #1e40af; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; }
 
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(245, 166, 35, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
-    }
-    .animate-pulse-glow { animation: pulse-glow 2s infinite; }
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); color: #fff; padding: 100px 24px 80px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 16px; }
+    .hero .tagline { font-size: 1.25rem; opacity: .95; margin-bottom: 32px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .hero-btns a { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .hero-btns a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+    .btn-call { background: #fff; color: #1e40af; }
+    .btn-wa { background: #25D366; color: #fff; }
 
-    /* Layout utilities */
-    .flex { display: flex; }
-    .inline-flex { display: inline-flex; }
-    .grid { display: grid; }
-    .hidden { display: none; }
-    .block { display: block; }
-    @media (min-width: 768px) { .md\\:block { display: block; } }
-    @media (min-width: 1024px) { .lg\\:flex { display: flex; } }
+    .trust-bar { background: #f8fafc; padding: 24px 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: .95rem; font-weight: 500; color: #475569; }
+    .trust-bar span { display: inline-flex; align-items: center; gap: 6px; }
 
-    .flex-col { flex-direction: column; }
-    .flex-wrap { flex-wrap: wrap; }
-    .items-center { align-items: center; }
-    .justify-center { justify-content: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-1 { gap: 4px; }
-    .gap-2 { gap: 8px; }
-    .gap-3 { gap: 12px; }
-    .gap-4 { gap: 16px; }
-    .gap-6 { gap: 24px; }
-    .gap-8 { gap: 32px; }
-    .gap-16 { gap: 64px; }
-    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-cols-1 { grid-template-columns: 1fr; }
-    @media (min-width: 768px) {
-      .md\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .md\\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
-      .md\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .lg\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-      .lg\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-    }
+    .services { background: #fff; }
+    .services h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; text-align: center; color: #1a1a1a; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .service-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,.08); border: 1px solid #e2e8f0; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+    .service-icon { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .service-card h3 { font-size: 1.15rem; margin-bottom: 8px; color: #1a1a1a; }
+    .service-card p { color: #64748b; font-size: .95rem; }
 
-    .font-syne { font-family: var(--font-syne); }
-    .text-center { text-align: center; }
-    .uppercase { text-transform: uppercase; }
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .fixed { position: fixed; }
-    .sticky { position: sticky; }
-    .top-0 { top: 0; }
-    .bottom-8 { bottom: 32px; }
-    .right-8 { right: 32px; }
-    .left-8 { left: 32px; }
-    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-    .-inset-4 { top: -16px; right: -16px; bottom: -16px; left: -16px; }
-    .top-1\\/2 { top: 50%; }
-    .left-1\\/2 { left: 50%; }
-    .-translate-x-1\\/2 { transform: translateX(-50%); }
-    .-translate-y-1\\/2 { transform: translateY(-50%); }
-    .z-10 { z-index: 10; }
-    .z-50 { z-index: 50; }
-    .z-\\[100\\] { z-index: 100; }
+    .about { background: #f8fafc; }
+    .about h2 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; color: #1a1a1a; }
+    .about-text { margin-bottom: 24px; color: #475569; }
+    .about ul { list-style: none; }
+    .about ul li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: #334155; }
+    .about ul li i { color: #22c55e; font-size: 1.1rem; }
 
-    .w-2 { width: 8px; }
-    .h-2 { height: 8px; }
-    .w-4 { width: 16px; }
-    .h-4 { height: 16px; }
-    .w-5 { width: 20px; }
-    .h-5 { height: 20px; }
-    .w-6 { width: 24px; }
-    .h-6 { height: 24px; }
-    .w-8 { width: 32px; }
-    .h-8 { height: 32px; }
-    .w-10 { width: 40px; }
-    .h-10 { height: 40px; }
-    .w-14 { width: 56px; }
-    .h-14 { height: 56px; }
-    .w-full { width: 100%; }
-    .h-full { height: 100%; }
-    .max-w-sm { max-width: 24rem; }
-    .max-w-lg { max-width: 32rem; }
-    .max-w-2xl { max-width: 42rem; }
-    .max-w-3xl { max-width: 48rem; }
+    .urgency { background: linear-gradient(90deg, #dc2626, #ea580c); color: #fff; text-align: center; padding: 20px 24px; font-weight: 700; font-size: 1.1rem; }
 
-    .p-4 { padding: 16px; }
-    .p-6 { padding: 24px; }
-    .p-8 { padding: 32px; }
-    .px-4 { padding-left: 16px; padding-right: 16px; }
-    .px-6 { padding-left: 24px; padding-right: 24px; }
-    .px-8 { padding-left: 32px; padding-right: 32px; }
-    .py-2 { padding-top: 8px; padding-bottom: 8px; }
-    .py-3 { padding-top: 12px; padding-bottom: 12px; }
-    .py-4 { padding-top: 16px; padding-bottom: 16px; }
-    .py-5 { padding-top: 20px; padding-bottom: 20px; }
-    .py-6 { padding-bottom: 24px; }
-    .py-8 { padding-top: 32px; padding-bottom: 32px; }
-    .py-10 { padding-top: 40px; padding-bottom: 40px; }
-    .py-20 { padding-top: 80px; padding-bottom: 80px; }
-    .pt-8 { padding-top: 32px; }
-    .pt-10 { padding-top: 40px; }
-    .pt-20 { padding-top: 80px; }
-    .pb-1 { padding-bottom: 4px; }
-    .pb-2 { padding-bottom: 8px; }
-    .pb-6 { padding-bottom: 24px; }
-    .pb-8 { padding-bottom: 32px; }
-    .pb-10 { padding-bottom: 40px; }
-    .mb-1 { margin-bottom: 4px; }
-    .mb-2 { margin-bottom: 8px; }
-    .mb-4 { margin-bottom: 16px; }
-    .mb-6 { margin-bottom: 24px; }
-    .mb-8 { margin-bottom: 32px; }
-    .mb-10 { margin-bottom: 40px; }
-    .mb-16 { margin-bottom: 64px; }
-    .mr-4 { margin-right: 16px; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .-translate-y-0\\.5 { transform: translateY(-2px); }
+    .faq { background: #fff; }
+    .faq h2 { font-size: 2rem; font-weight: 700; margin-bottom: 32px; text-align: center; color: #1a1a1a; }
+    .faq-toggle { display: none; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { display: block; padding: 18px 20px; cursor: pointer; font-weight: 600; color: #1a1a1a; }
+    .faq-q::after { content: '\002B'; float: right; }
+    .faq-toggle:checked + .faq-q::after { content: '\2212'; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s; }
+    .faq-toggle:checked ~ .faq-a { max-height: 200px; }
+    .faq-a p { padding: 0 20px 18px; color: #475569; }
 
-    .rounded-full { border-radius: 9999px; }
-    .rounded-lg { border-radius: 8px; }
-    .rounded-xl { border-radius: 12px; }
-    .rounded-2xl { border-radius: 16px; }
-    .rounded-3xl { border-radius: 24px; }
+    .contact { background: #f8fafc; }
+    .contact h2 { font-size: 2rem; font-weight: 700; margin-bottom: 24px; text-align: center; color: #1a1a1a; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #1e40af; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .contact-serving { text-align: center; color: #64748b; margin-bottom: 24px; }
+    .social-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .social-btn { width: 50px; height: 50px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: transform .2s; }
+    .social-btn:hover { transform: translateY(-3px); }
+    .social-fb { background: #1877F2; }
+    .social-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .social-tt { background: #000; }
+    .social-wa { background: #25D366; }
 
-    .border { border-width: 1px; }
-    .border-2 { border-width: 2px; }
-    .border-b { border-bottom-width: 1px; }
-    .border-t { border-top-width: 1px; }
-    .border-y { border-top-width: 1px; border-bottom-width: 1px; }
-    .border-dashed { border-style: dashed; }
-    .border-black\\/5 { border-color: rgba(0,0,0,0.05); }
-    .border-white\\/10 { border-color: rgba(255,255,255,0.1); }
-    .border-amber\\/30 { border-color: rgba(245,166,35,0.3); }
+    .claim-section { background: #1e40af; color: #fff; text-align: center; padding: 80px 24px; }
+    .claim-section h2 { font-size: 2rem; margin-bottom: 16px; }
+    .claim-section .claim-btn { display: inline-block; background: #22c55e; color: #fff; padding: 18px 36px; border-radius: 8px; font-weight: 700; font-size: 1.2rem; text-decoration: none; margin-top: 16px; transition: transform .2s; }
+    .claim-section .claim-btn:hover { transform: translateY(-2px); }
 
-    .bg-white { background-color: #fff; }
-    .bg-navy { background-color: var(--color-navy); }
-    .bg-amber { background-color: var(--color-amber); }
-    .bg-light-grey { background-color: var(--color-light-grey); }
-    .bg-white\\/5 { background-color: rgba(255,255,255,0.05); }
-    .bg-white\\/10 { background-color: rgba(255,255,255,0.1); }
-    .bg-amber\\/10 { background-color: rgba(245,166,35,0.1); }
-    .bg-amber\\/20 { background-color: rgba(245,166,35,0.2); }
-    .bg-navy\\/40 { background-color: rgba(13,27,42,0.4); }
-    .bg-blue-500\\/10 { background-color: rgba(59,130,246,0.1); }
+    .footer { background: #0f172a; color: #fff; padding: 48px 24px 32px; text-align: center; }
+    .footer .footer-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+    .footer .footer-meta { color: #94a3b8; font-size: .9rem; margin-bottom: 20px; }
+    .footer .social-row { margin-bottom: 20px; }
+    .footer .footer-note { font-size: .8rem; color: #64748b; }
 
-    .text-white { color: #fff; }
-    .text-navy { color: var(--color-navy); }
-    .text-amber { color: var(--color-amber); }
-    .text-muted { color: var(--color-muted); }
-    .text-white\\/40 { color: rgba(255,255,255,0.4); }
-    .text-white\\/50 { color: rgba(255,255,255,0.5); }
-    .text-white\\/70 { color: rgba(255,255,255,0.7); }
-    .text-white\\/90 { color: rgba(255,255,255,0.9); }
-    .text-amber\\/60 { color: rgba(245,166,35,0.6); }
-    .text-navy\\/80 { color: rgba(13,27,42,0.8); }
-
-    .text-xs { font-size: 0.75rem; }
-    .text-sm { font-size: 0.875rem; }
-    .text-lg { font-size: 1.125rem; }
-    .text-xl { font-size: 1.25rem; }
-    .text-2xl { font-size: 1.5rem; }
-    .text-3xl { font-size: 1.875rem; }
-    .text-4xl { font-size: 2.25rem; }
-    .text-5xl { font-size: 3rem; }
-    .text-6xl { font-size: 3.75rem; }
-    .text-\\[10px\\] { font-size: 10px; }
-
-    .font-medium { font-weight: 500; }
-    .font-bold { font-weight: 700; }
-    .font-extrabold { font-weight: 800; }
-    .tracking-tight { letter-spacing: -0.025em; }
-    .tracking-tighter { letter-spacing: -0.05em; }
-    .tracking-wider { letter-spacing: 0.05em; }
-    .tracking-widest { letter-spacing: 0.1em; }
-    .leading-relaxed { line-height: 1.625; }
-
-    .opacity-50 { opacity: 0.5; }
-    .opacity-\\[0\\.03\\] { opacity: 0.03; }
-    .overflow-hidden { overflow: hidden; }
-    .overflow-visible { overflow: visible; }
-    .pointer-events-none { pointer-events: none; }
-    .cursor-default { cursor: default; }
-    .cursor-pointer { cursor: pointer; }
-    .whitespace-nowrap { white-space: nowrap; }
-
-    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); }
-    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
-    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); }
-    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
-    .blur-2xl { filter: blur(40px); }
-    .blur-\\[100px\\] { filter: blur(100px); }
-    .blur-\\[120px\\] { filter: blur(120px); }
-
-    .backdrop-blur-sm { backdrop-filter: blur(4px); }
-    .backdrop-blur-xl { backdrop-filter: blur(24px); }
-    .grayscale { filter: grayscale(100%); }
-    .object-cover { object-fit: cover; }
-
-    .transition-all { transition: all 0.2s ease; }
-    .transition-colors { transition: color 0.2s ease, background-color 0.2s ease; }
-    .transition-transform { transition: transform 0.2s ease; }
-    .duration-200 { transition-duration: 200ms; }
-    .duration-300 { transition-duration: 300ms; }
-    .duration-500 { transition-duration: 500ms; }
-    .duration-700 { transition-duration: 700ms; }
-
-    .hover\\:grayscale-0:hover { filter: grayscale(0); }
-    .hover\\:bg-amber:hover { background-color: var(--color-amber); }
-    .hover\\:bg-navy:hover { background-color: var(--color-navy); }
-    .hover\\:bg-white\\/20:hover { background-color: rgba(255,255,255,0.2); }
-    .hover\\:bg-amber\\/90:hover { background-color: rgba(245,166,35,0.9); }
-    .hover\\:text-white:hover { color: #fff; }
-    .hover\\:text-navy:hover { color: var(--color-navy); }
-    .hover\\:text-amber:hover { color: var(--color-amber); }
-    .hover\\:scale-110:hover { transform: scale(1.1); }
-    .hover\\:shadow-amber\\/20:hover { box-shadow: 0 10px 15px -3px rgba(245,166,35,0.2); }
-    .group:hover .group-hover\\:opacity-100 { opacity: 1; }
-    .group:hover .group-hover\\:translate-x-0 { transform: translateX(0); }
-    .group:hover .group-hover\\:scale-110 { transform: scale(1.1); }
-
-    .inline-block { display: inline-block; }
-    .space-y-4 > * + * { margin-top: 16px; }
-    .space-y-5 > * + * { margin-top: 20px; }
-    .aspect-square { aspect-ratio: 1 / 1; }
-
-    /* Hero / layout */
-    .min-h-\\[calc\\(100vh-80px\\)\\] { min-height: calc(100vh - 80px); }
-    .top-\\[-10%\\] { top: -10%; }
-    .right-\\[-10%\\] { right: -10%; }
-    .bottom-\\[-10%\\] { bottom: -10%; }
-    .left-\\[-10%\\] { left: -10%; }
-    .w-\\[60%\\] { width: 60%; }
-    .h-\\[60%\\] { height: 60%; }
-    .w-\\[40%\\] { width: 40%; }
-    .h-\\[40%\\] { height: 40%; }
-    .mr-\\[0\\.2em\\] { margin-right: 0.2em; }
-    .pb-\\[0\\.1em\\] { padding-bottom: 0.1em; }
-
-    /* Button */
-    .btn {
-      padding: 16px 32px;
-      border-radius: 9999px;
-      font-family: var(--font-dm-sans);
-      font-weight: 500;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .btn-primary { background: var(--color-amber); color: var(--color-navy); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-    .btn-primary:hover { background: rgba(245,166,35,0.9); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(245,166,35,0.2); }
-    .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; }
-    .btn-secondary:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
-    .btn-outline { border: 2px solid var(--color-navy); color: var(--color-navy); background: transparent; }
-    .btn-outline:hover { background: var(--color-navy); color: #fff; transform: translateY(-2px); }
-    .btn-navy { background: var(--color-navy); color: #fff; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-    .btn-navy:hover { background: rgba(13,27,42,0.9); transform: translateY(-2px); }
-    .btn-sm { padding: 12px 24px; font-size: 0.875rem; }
-
-    /* Nav scrolled */
-    nav.nav-scrolled { padding-top: 12px; padding-bottom: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-
-    /* Fade-up (JS will set .is-visible) */
-    .fade-up { opacity: 0; transform: translateY(40px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .fade-up.is-visible { opacity: 1; transform: translateY(0) scale(1); }
-    .fade-up.trust-item.is-visible { opacity: 0.6; }
-    .fade-up.trust-item.is-visible:hover { opacity: 1; }
-
-    /* Text reveal words */
-    .text-reveal-word { display: inline-block; overflow: hidden; margin-right: 0.2em; padding-bottom: 0.1em; }
-    .text-reveal-word span { display: inline-block; transform: translateY(100%); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .text-reveal-word.revealed span { transform: translateY(0); }
-
-    /* Hero card float */
-    @keyframes hero-float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .hero-card-float { animation: hero-float 4s ease-in-out infinite; }
-
-    /* Hero card: stronger contrast so text is readable */
-    #hero-card {
-      background: linear-gradient(135deg, rgba(13, 27, 42, 0.92) 0%, rgba(13, 27, 42, 0.88) 100%);
-      border: 2px solid rgba(245, 166, 35, 0.5);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-    }
-    .hero-card-title {
-      display: block;
-      padding: 0.75rem 1rem 0.75rem 1rem;
-      margin: -0.5rem -0.5rem 1.5rem -0.5rem;
-      margin-left: 0;
-      padding-left: 1rem;
-      border-left: 4px solid var(--color-amber);
-      background: linear-gradient(90deg, rgba(245, 166, 35, 0.12) 0%, transparent 100%);
-      border-radius: 0 8px 8px 0;
-      color: #fff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-      letter-spacing: -0.02em;
-    }
-    .hero-card-list { color: #fff; }
-    .hero-card-list li { color: rgba(255, 255, 255, 0.95); }
-
-    .about-photo-placeholder { min-height: 200px; }
-
-    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-    @keyframes pulse { 50% { opacity: 0.5; } }
-
-    .flex-shrink-0 { flex-shrink: 0; }
-    @media (min-width: 768px) {
-      .md\\:flex-row { flex-direction: row; }
-    }
-    /* SVG icons */
-    .icon { flex-shrink: 0; }
-    .icon-amber { color: var(--color-amber); }
-    .fill-amber { fill: var(--color-amber); }
-    .fill-current { fill: currentColor; }
+    .float-wa { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; box-shadow: 0 4px 20px rgba(0,0,0,.2); z-index: 99; text-decoration: none; transition: transform .2s; }
+    .float-wa:hover { transform: scale(1.05); }
+    .float-call { position: fixed; bottom: 24px; left: 24px; padding: 14px 20px; background: #1e40af; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; z-index: 99; display: none; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    @media (max-width: 768px) { .float-call { display: inline-flex; align-items: center; gap: 8px; } }
   </style>
 </head>
 <body>
-  <div class="min-h-screen">
-    <!-- 1. Announcement Bar -->
-    <div class="hidden md:block bg-navy text-white py-2 border-b border-white/10">
-      <div class="container-custom flex justify-center items-center gap-8 text-xs font-medium tracking-wider uppercase">
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Gas Safe Registered
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          Trusted Local Service
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon w-4 h-4 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          24/7 Emergency Response
-        </span>
-      </div>
+  <div class="top-banner">👋 Hi BLACKPOOL HEATING SUPPLIES, we built this page free for you! <a href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20BLACKPOOL%20HEATING%20SUPPLIES">Claim it here</a>.</div>
+  <header class="header">
+    <span class="header-logo">BLACKPOOL HEATING SUPPLIES</span>
+    <a class="header-phone" href="tel:+44 1253 620400"><i class="fas fa-phone"></i> +44 1253 620400</a>
+  </header>
+  <section class="hero">
+    <h1>Your Local Plumbing Experts</h1>
+    <p class="tagline">Reliable heating supplies and plumbing services.</p>
+    <div class="hero-btns">
+      <a class="btn-call" href="tel:+44 1253 620400"><i class="fas fa-phone"></i> Call Now</a>
+      <a class="btn-wa" href="https://wa.me/441253620400"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
-
-    <!-- 2. Sticky Nav -->
-    <nav id="main-nav" class="sticky top-0 z-50 bg-white py-5 transition-all duration-300">
-      <div class="container-custom flex justify-between items-center">
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center">
-            <svg class="icon w-6 h-6 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <span class="font-syne font-extrabold text-2xl text-navy tracking-tight">BLACKPOOL HEATING SUPPLIES<span class="text-amber">.</span></span>
-        </div>
-        <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-navy">
-          <a href="#services" class="hover:text-amber transition-colors">Services</a>
-          <a href="#about" class="hover:text-amber transition-colors">About</a>
-          <a href="#reviews" class="hover:text-amber transition-colors">Reviews</a>
-          <a href="#contact" class="hover:text-amber transition-colors">Contact</a>
-        </div>
-        <a href="tel:+44 1253 620400" class="btn btn-primary btn-sm flex items-center gap-2">
-          <svg class="icon w-4 h-4 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +44 1253 620400
-        </a>
-      </div>
-    </nav>
-
-    <!-- 3. Hero Section -->
-    <section class="relative min-h-[calc(100vh-80px)] bg-navy flex items-center overflow-hidden">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-amber/10 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[100px]"></div>
-        <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03]" viewBox="0 0 100 100" style="width:100%;height:100%;">
-          <pattern id="hexagons" width="10" height="17.32" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
-            <path d="M5 0 L10 2.88 L10 8.66 L5 11.54 L0 8.66 L0 2.88 Z" fill="none" stroke="white" stroke-width="0.1"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#hexagons)"/>
-        </svg>
-      </div>
-      <div class="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-20">
-        <div class="text-white">
-          <div id="hero-badge" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-amber text-xs font-bold uppercase tracking-widest mb-8" style="opacity:0; transform: translateX(-20px);">
-            <span class="w-2 h-2 rounded-full bg-amber animate-pulse"></span>
-            Blackpool's #1 Rated Plumbers
-          </div>
-          <h1 id="hero-headline" class="heading-fluid mb-6 text-white">[headline]</h1>
-          <p id="hero-tagline" class="text-xl text-white/70 mb-10 max-w-lg" style="opacity:0;">[tagline]</p>
-          <div id="hero-buttons" class="flex flex-wrap gap-4" style="opacity:0; transform: translateY(20px);">
-            <a href="#contact" class="btn btn-primary">Book a Repair</a>
-            <a href="#services" class="btn btn-secondary">View Our Services</a>
-          </div>
-        </div>
-        <div id="hero-card-wrap" class="relative perspective-1000 hero-card-float" style="opacity:0; transform: scale(0.9);">
-          <div class="absolute -inset-4 bg-amber/20 blur-2xl rounded-3xl"></div>
-          <div id="hero-card" class="relative backdrop-blur-xl p-8 rounded-3xl transition-all duration-500">
-            <h3 class="hero-card-title font-syne text-2xl mb-6">Why Blackpool Trusts Us</h3>
-            <ul class="hero-card-list space-y-5 mb-8">
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                No Call-Out Fees Ever
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Fixed Upfront Pricing
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                12-Month Guarantee
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Local Blackpool Engineers
-              </li>
-              <li class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-amber/20 flex items-center justify-center"><svg class="w-4 h-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-                Emergency 24/7 Support
-              </li>
-            </ul>
-            <div class="pt-8 border-t border-white/10 text-center">
-              <p class="text-amber/60 text-sm uppercase tracking-widest mb-2">Emergency Hotline</p>
-              <p class="text-4xl font-syne font-extrabold text-amber">+44 1253 620400</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Trust Strip -->
-    <section class="bg-light-grey py-10 border-y border-black/5">
-      <div class="container-custom">
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="0">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Gas Safe</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="100">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Accredited</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="200">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v12M15 5.88 14 10v12M3 18h4l2.5-6 2.5 6h4"/><path d="M12 2v4"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">5-Star Rated</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="300">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Fast Response</span>
-          </div>
-          <div class="fade-up trust-item flex flex-col items-center gap-2 text-center grayscale hover:grayscale-0 transition-all duration-300 cursor-default" data-delay="400">
-            <div class="text-navy transition-colors duration-300"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span class="text-[10px] font-bold uppercase tracking-tighter text-navy">Guaranteed</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Services Section -->
-    <section id="services" class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">Our Expert Services</h2>
-            <p class="text-muted max-w-2xl mx-auto">Comprehensive plumbing and heating solutions tailored for Blackpool homes and businesses.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="0"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔧</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="50"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔥</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="100"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🚿</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="150"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🌡️</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="200"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">💧</div><p class="text-muted text-sm leading-relaxed"></p></div>
-          <div class="fade-up bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden group relative" data-delay="250"><div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"></div><div class="w-14 h-14 bg-amber/10 rounded-xl flex items-center justify-center text-3xl mb-6">🏠</div><p class="text-muted text-sm leading-relaxed"></p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. About Section -->
-    <section id="about" class="section-padding bg-navy text-white overflow-hidden">
-      <div class="container-custom grid lg:grid-cols-2 gap-20 items-center">
-        <div>
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-8"></h2>
-            <p class="text-white/70 mb-10 text-lg">[about_text]</p>
-            <div class="grid grid-cols-2 gap-6">
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">15+</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Years Experience</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">500+</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Happy Customers</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">24h</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Emergency Support</p>
-              </div>
-              <div class="about-stat bg-white/5 border border-white/10 p-6 rounded-2xl transition-colors cursor-default">
-                <p class="text-3xl font-syne font-bold text-amber mb-1">100%</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-white/40">Satisfaction</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="relative">
-          <div class="fade-up" data-delay="200">
-            <div class="aspect-square rounded-3xl border-2 border-dashed border-amber/30 p-4">
-              <div class="about-photo-placeholder w-full h-full bg-white/5 rounded-2xl flex flex-col items-center justify-center overflow-hidden relative border border-white/10">
-                <svg class="w-16 h-16 text-white/30 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                <p class="text-white/40 text-sm font-medium uppercase tracking-widest">Your team photo</p>
-                <p class="text-white/30 text-xs mt-1">Replace with image URL or leave as placeholder</p>
-                <div class="absolute bottom-8 left-8 right-8 text-left">
-                  <p class="font-syne text-xl text-white">The BLACKPOOL HEATING SUPPLIES Team</p>
-                  <p class="text-amber text-sm">On-site in Blackpool, 2026</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Why Choose Us -->
-    <section class="section-padding bg-light-grey">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">Why Choose BLACKPOOL HEATING SUPPLIES?</h2>
-            <p class="text-muted">The little things that make a big difference.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="0">
-            <div class="text-4xl mb-4">📍</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Local Experts</h3>
-            <p class="text-muted text-sm">Based right here in Blackpool, we know the area and its plumbing systems inside out.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="50">
-            <div class="text-4xl mb-4">💰</div>
-            <h3 class="text-lg font-syne text-navy mb-3">No Hidden Costs</h3>
-            <p class="text-muted text-sm">We provide clear, fixed quotes before any work begins. No nasty surprises on your bill.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="100">
-            <div class="text-4xl mb-4">🛡️</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Fully Insured</h3>
-            <p class="text-muted text-sm">Complete peace of mind with comprehensive public liability insurance for every job.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="150">
-            <div class="text-4xl mb-4">✨</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Clean & Tidy</h3>
-            <p class="text-muted text-sm">We treat your home with respect, using floor protectors and cleaning up thoroughly.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="200">
-            <div class="text-4xl mb-4">🤝</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Trusted Advice</h3>
-            <p class="text-muted text-sm">We'll never recommend work you don't need. Honest, professional advice every time.</p>
-          </div>
-          <div class="fade-up why-card bg-white p-8 rounded-2xl shadow-sm border border-black/5 text-center transition-all duration-300" data-delay="250">
-            <div class="text-4xl mb-4">⚡</div>
-            <h3 class="text-lg font-syne text-navy mb-3">Rapid Response</h3>
-            <p class="text-muted text-sm">Emergency? We aim to be at your door within 60 minutes for all Blackpool call-outs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Reviews Section -->
-    <section id="reviews" class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <div class="fade-up" data-delay="0">
-            <h2 class="text-4xl md:text-5xl mb-4 text-navy">What Our Clients Say</h2>
-            <div class="flex justify-center gap-1 text-amber mb-4">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <p class="text-muted">Rated 4.9/5 based on 500+ local reviews.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="0"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="100"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-          <div class="fade-up bg-light-grey p-8 rounded-3xl relative" data-delay="200"><div class="flex gap-1 text-amber mb-6"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="italic text-navy/80 leading-relaxed"></p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. CTA Banner -->
-    <section id="contact" class="bg-amber py-20">
-      <div class="container-custom text-center">
-        <div class="fade-up" data-delay="0">
-          <h2 class="text-4xl md:text-6xl text-navy mb-10 max-w-3xl mx-auto">[cta_text]</h2>
-          <p class="text-navy/80 mb-6"></p>
-          <div class="flex flex-wrap justify-center gap-4">
-            <a href="tel:+44 1253 620400" class="btn btn-navy flex items-center gap-2">
-              <svg class="icon w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call +44 1253 620400
-            </a>
-            <a href="mailto:" class="btn btn-outline border-navy text-navy hover:bg-navy hover:text-white">Get a Free Quote</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. Footer -->
-    <footer class="bg-navy text-white pt-20 pb-10">
-      <div class="container-custom">
-        <div class="grid md:grid-cols-2 gap-16 mb-16">
-          <div>
-            <div class="flex items-center gap-2 mb-8">
-              <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-                <svg class="icon w-6 h-6 icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <span class="font-syne font-extrabold text-2xl tracking-tight">BLACKPOOL HEATING SUPPLIES<span class="text-amber">.</span></span>
-            </div>
-            <p class="text-white/50 max-w-sm mb-8">Your local Blackpool plumbing experts. Providing high-quality repairs and installations for over 15 years.</p>
-            <div class="flex gap-4">
-              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber hover:text-navy transition-all cursor-pointer" aria-label="Facebook"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-              <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber hover:text-navy transition-all cursor-pointer" aria-label="Instagram"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-8">
-            <div>
-              <h4 class="font-syne text-lg mb-6">Quick Links</h4>
-              <ul class="space-y-4 text-white/50 text-sm">
-                <li><a href="#" class="hover:text-amber transition-colors">Home</a></li>
-                <li><a href="#services" class="hover:text-amber transition-colors">Services</a></li>
-                <li><a href="#about" class="hover:text-amber transition-colors">About Us</a></li>
-                <li><a href="#reviews" class="hover:text-amber transition-colors">Reviews</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-syne text-lg mb-6">Contact Us</h4>
-              <ul class="space-y-4 text-white/50 text-sm">
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Blackpool</li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +44 1253 620400</li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> </li>
-                <li class="flex items-center gap-3"><svg class="w-4 h-4 text-amber flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon-Sun: 24/7</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30 font-medium uppercase tracking-widest">
-          <p>© 2026 BLACKPOOL HEATING SUPPLIES Blackpool. All Rights Reserved.</p>
-          <div class="flex gap-8">
-            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- 11. Floating Emergency Button -->
-    <div class="fixed bottom-8 right-8 z-[100] group" style="z-index: 100;">
-      <div id="emergency-tooltip" class="absolute right-full mr-4 top-1/2 bg-navy text-white px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 transition-all duration-300 pointer-events-none" style="transform: translate(1rem, -50%); top: 50%;">Emergency Call</div>
-      <a href="tel:+44 1253 620400" class="w-16 h-16 bg-amber rounded-full flex items-center justify-center text-white shadow-2xl animate-pulse-glow hover:scale-110 transition-transform duration-300" style="display: inline-flex; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
-        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </a>
-    </div>
+  </section>
+  <div class="trust-bar">
+    <span><i class="fas fa-star" style="color:#facc15;"></i> 5-Star Rated</span>
+    <span>50+ Happy Customers</span>
+    <span>Fully Insured</span>
+    <span>Free Quotes</span>
+    <span>Local Business</span>
   </div>
-
-  <script>
-(function() {
-  'use strict';
-
-  var easeQuint = [0.16, 1, 0.3, 1];
-
-  // ----- Nav scroll -----
-  var nav = document.getElementById('main-nav');
-  if (nav) {
-    function onScroll() {
-      nav.classList.toggle('nav-scrolled', window.scrollY > 50);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  // ----- Hero headline: text reveal (word by word). Content exists in HTML as fallback; JS clears and rebuilds for animation. -----
-  var headlineEl = document.getElementById('hero-headline');
-  if (headlineEl) {
-    var headlineText = (headlineEl.textContent || headlineEl.innerText || '').trim();
-    if (headlineText) {
-      headlineEl.textContent = '';
-      var words = headlineText.split(/\s+/);
-      words.forEach(function(word, i) {
-        var wrap = document.createElement('span');
-        wrap.className = 'text-reveal-word';
-        wrap.style.transitionDelay = (i * 0.1) + 's';
-        var inner = document.createElement('span');
-        inner.textContent = word;
-        wrap.appendChild(inner);
-        headlineEl.appendChild(wrap);
-      });
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          headlineEl.querySelectorAll('.text-reveal-word').forEach(function(w, i) {
-            w.style.transitionDelay = (i * 0.1) + 's';
-            setTimeout(function() { w.classList.add('revealed'); }, 50 + i * 80);
-          });
-        });
-      });
-    }
-  }
-
-  // ----- Hero entrance animations -----
-  var heroBadge = document.getElementById('hero-badge');
-  var heroTagline = document.getElementById('hero-tagline');
-  var heroButtons = document.getElementById('hero-buttons');
-  var heroCardWrap = document.getElementById('hero-card-wrap');
-
-  function animate(el, opts, duration, delay, easing) {
-    if (!el) return;
-    el.style.transition = 'none';
-    if (opts.from) {
-      if (opts.from.opacity != null) el.style.opacity = opts.from.opacity;
-      if (opts.from.transform) el.style.transform = opts.from.transform;
-    }
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        el.style.transition = (duration || 0.6) + 'ms ' + (easing || 'ease-out') + (delay ? ' ' + delay + 'ms' : '') + ' ';
-        if (opts.to) {
-          if (opts.to.opacity != null) el.style.opacity = opts.to.opacity;
-          if (opts.to.transform) el.style.transform = opts.to.transform || 'none';
-        }
-      });
-    });
-  }
-
-  setTimeout(function() {
-    animate(heroBadge, { from: { opacity: 0, transform: 'translateX(-20px)' }, to: { opacity: 1, transform: 'translateX(0)' } }, 600, 0);
-  }, 0);
-  setTimeout(function() {
-    animate(heroTagline, { from: { opacity: 0 }, to: { opacity: 1 } }, 1000, 0);
-  }, 800);
-  setTimeout(function() {
-    animate(heroButtons, { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'translateY(0)' } }, 600, 0);
-  }, 1000);
-  setTimeout(function() {
-    if (heroCardWrap) {
-      heroCardWrap.style.transition = 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s';
-      heroCardWrap.style.opacity = '1';
-      heroCardWrap.style.transform = 'scale(1)';
-    }
-  }, 400);
-
-  // ----- Hero card hover -----
-  var heroCard = document.getElementById('hero-card');
-  if (heroCard) {
-    heroCard.addEventListener('mouseenter', function() {
-      heroCard.style.transform = 'translateY(-10px) rotateX(2deg) rotateY(-2deg)';
-    });
-    heroCard.addEventListener('mouseleave', function() {
-      heroCard.style.transform = '';
-    });
-  }
-
-  // ----- Fade-up on scroll (Intersection Observer) -----
-  function observeFadeUp() {
-    var els = document.querySelectorAll('.fade-up');
-    if (!els.length) return;
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var delay = parseInt(el.getAttribute('data-delay') || 0, 10);
-        el.style.transitionDelay = delay + 'ms';
-        el.classList.add('is-visible');
-      });
-    }, { rootMargin: '-100px 0px', threshold: 0 });
-    els.forEach(function(el) { observer.observe(el); });
-  }
-  observeFadeUp();
-
-  // ----- Trust strip hover (scale + color) -----
-  document.querySelectorAll('.trust-item').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.opacity = '1';
-      this.style.transform = 'scale(1.1)';
-      this.style.color = '#f5a623';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.opacity = '';
-      this.style.transform = '';
-      this.style.color = '';
-    });
-  });
-
-  // ----- About stat hover -----
-  document.querySelectorAll('.about-stat').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.transform = 'scale(1.05)';
-      this.style.backgroundColor = 'rgba(255,255,255,0.1)';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.transform = '';
-      this.style.backgroundColor = '';
-    });
-  });
-
-  // ----- Why choose cards hover (y, scale, shadow) -----
-  document.querySelectorAll('.why-card').forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-8px) scale(1.03)';
-      this.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-    });
-    el.addEventListener('mouseleave', function() {
-      this.style.transform = '';
-      this.style.boxShadow = '';
-    });
-  });
-
-  // ----- Floating button: show tooltip on hover -----
-  var floatWrap = document.querySelector('.fixed.bottom-8.right-8');
-  var tooltip = document.getElementById('emergency-tooltip');
-  if (floatWrap && tooltip) {
-    floatWrap.addEventListener('mouseenter', function() {
-      tooltip.style.opacity = '1';
-      tooltip.style.transform = 'translate(-1rem, -50%)';
-    });
-    floatWrap.addEventListener('mouseleave', function() {
-      tooltip.style.opacity = '0';
-      tooltip.style.transform = 'translate(1rem, -50%)';
-    });
-  }
-})();
-  </script>
+  <section class="section services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-wrench"></i></div>
+              <h3>Emergency Plumbing Repairs</h3>
+              <p>24/7 emergency plumbing services for burst pipes, leaks, and urgent repairs throughout Blackpool.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-fire"></i></div>
+              <h3>Heating System Installation</h3>
+              <p>Professional installation of boilers, radiators, and heating systems with quality supplies and expert workmanship.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-home"></i></div>
+              <h3>Bathroom &amp; Kitchen Plumbing</h3>
+              <p>Complete plumbing solutions for bathroom and kitchen renovations, including fixture installation and pipework.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-tint"></i></div>
+              <h3>Drain Cleaning &amp; Maintenance</h3>
+              <p>Professional drain unblocking, cleaning services, and preventative maintenance to keep your drains flowing freely.</p>
+            </div>
+    </div>
+  </section>
+  <section class="section about">
+    <h2>About Us</h2>
+    <div class="about-text">At BLACKPOOL HEATING SUPPLIES, we are dedicated to providing quality plumbing solutions to the Blackpool community. Our focus is on heating supplies and ensuring customer satisfaction.</div>
+    <ul><li><i class="fas fa-check-circle"></i> Licensed and insured plumbers</li><li><i class="fas fa-check-circle"></i> Quality heating supplies and materials</li><li><i class="fas fa-check-circle"></i> Competitive pricing with no hidden fees</li><li><i class="fas fa-check-circle"></i> Local Blackpool experts who know the area</li>
+    </ul>
+  </section>
+  <div class="urgency">⚡ Limited availability this week — contact us now to book</div>
+  <section class="section faq">
+    <h2>FAQ</h2>
+    
+            <div class="faq-item">
+              <input type="checkbox" id="faq0" class="faq-toggle" />
+              <label for="faq0" class="faq-q">Do you offer emergency plumbing services?</label>
+              <div class="faq-a"><p>Yes, we provide 24/7 emergency plumbing services throughout Blackpool for urgent repairs, burst pipes, and heating system breakdowns.</p></div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq1" class="faq-toggle" />
+              <label for="faq1" class="faq-q">What types of heating systems do you install?</label>
+              <div class="faq-a"><p>We install and service all types of heating systems including gas boilers, electric boilers, radiators, underfloor heating, and smart thermostats.</p></div>
+            </div>
+            <div class="faq-item">
+              <input type="checkbox" id="faq2" class="faq-toggle" />
+              <label for="faq2" class="faq-q">How quickly can you respond to a plumbing emergency?</label>
+              <div class="faq-a"><p>We aim to respond to emergency calls within 60 minutes in the Blackpool area, depending on location and current demand.</p></div>
+            </div>
+  </section>
+  <section class="section contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-links">
+      <a href="tel:+44 1253 620400"><i class="fas fa-phone"></i> +44 1253 620400</a>
+      <a href="mailto:"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://wa.me/441253620400"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <p class="contact-serving">Serving Blackpool</p>
+    <div class="social-row">
+      <a href="#" class="social-btn social-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-btn social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-btn social-tt" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/441253620400" class="social-btn social-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </section>
+  <section class="claim-section">
+    <h2>Love your new page?</h2>
+    <p>Claim it free — we'll set everything up for you.</p>
+    <a class="claim-btn" href="mailto:YOUR_EMAIL@gmail.com?subject=I%20want%20to%20claim%20my%20page%20-%20BLACKPOOL%20HEATING%20SUPPLIES">🚀 Claim This Page Free</a>
+  </section>
+  <footer class="footer">
+    <div class="footer-name">BLACKPOOL HEATING SUPPLIES</div>
+    <div class="footer-meta">Blackpool · <a href="tel:+44 1253 620400" style="color:#94a3b8;">+44 1253 620400</a></div>
+    <div class="social-row">
+      <a href="#" class="social-btn social-fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-btn social-ig"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-btn social-tt"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/441253620400" class="social-btn social-wa"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p class="footer-note">Page created as a free preview</p>
+  </footer>
+  <a class="float-wa" href="https://wa.me/441253620400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a class="float-call" href="tel:+44 1253 620400"><i class="fas fa-phone"></i> Call Now</a>
 </body>
 </html>
